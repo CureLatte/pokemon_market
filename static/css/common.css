@@ -1,0 +1,223 @@
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  letter-spacing: -0.1px;
+}
+
+.inner_padding {
+  padding: 100px 250px;
+}
+
+.span_common {
+  margin: 0;
+  display: block;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #3182f6;
+}
+
+.h4_common {
+  margin: 0;
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #191f28;
+}
+.p_common {
+  margin: 0;
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgb(51, 61, 75);
+}
+
+.btn_common {
+  color: #fff;
+  padding: 16px 25px;
+  border-radius: 8px;
+  background-color: #3182f6;
+  transition-duration: 0.2s;
+  border: none;
+  font-size: 15px;
+  font-weight: 400;
+}
+.btn_common:focus,
+.btn_common:hover {
+  background-color: #1b64d9;
+}
+
+/* ################### 정형화된 콘텐츠 스타일들 ################### */
+
+.form_common {
+  width: 800px;
+}
+.form_common label {
+  display: block;
+  margin-bottom: 10px;
+  color: #4e5968;
+}
+.form_common input {
+  border: 1px solid #ddd;
+  width: 100%;
+  font-weight: 400;
+  height: 45px;
+  border-radius: 6px;
+  line-height: 1.4;
+  box-sizing: border-box;
+  padding-left: 20px;
+  transition-duration: 0.1s;
+}
+.form_common input:focus,
+.form_common input:hover {
+  border: 1px solid #3182f6;
+  outline: 1px solid #3182f6;
+}
+
+.form_common .btn_common {
+  width: 800px;
+  height: 60px;
+}
+
+/* 노말 배경 스타일 */
+
+.b_box_common {
+  background-color: #191f28;
+  border-radius: 25px;
+  height: 500px;
+  padding: 15px 70px;
+}
+.b_box_common_h5 {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: rgb(176, 184, 193);
+}
+
+/* 그레이 배경 스타일 */
+
+.w_box_common {
+  background-color: #fff;
+  border-radius: 25px;
+  height: 300px;
+  width: 700px;
+  padding: 30px 50px;
+}
+.w_box_common_p {
+  margin: 0;
+  font-size: 27px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgb(51, 61, 75);
+}
+
+/* 블랙 배경 스타일 */
+
+.b_box_bottom {
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+  padding: 260px 0;
+}
+.b_box_bottom_h4 {
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #ffffff;
+  margin-bottom: 21px;
+  text-align: center;
+}
+.b_box_bottom_p {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #b0b8c1;
+  text-align: center;
+  margin-bottom: 200px;
+}
+.b_box_bottom_h5 {
+  max-width: 300px;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #ffffff;
+  text-align: left;
+}
+
+.b_box_bottom_h5_p {
+  max-width: 300px;
+  margin-bottom: 38px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: left;
+  color: #b0b8c1;
+}
+
+/* ################### 공통 클레스 ################### */
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bg_gray {
+  background-color: #f5f5f5;
+  height: 1100px;
+}
+
+/* 폰트 색상 클레스 */
+.color_white {
+  color: #fff;
+}
+.color_blue {
+  color: #3182f6;
+}
+
+/* 마진값 클레스 */
+.m0 {
+  margin: 0;
+}
+.mt10 {
+  margin-top: 10px;
+}
+.mt20 {
+  margin-top: 20px;
+}
+.mt30 {
+  margin-top: 30px;
+}
+.mt40 {
+  margin-top: 40px;
+}
+.mt50 {
+  margin-top: 50px;
+}
+.mt60 {
+  margin-top: 60px;
+}
+.mt70 {
+  margin-top: 70px;
+}
+.mt80 {
+  margin-top: 80px;
+}
+.mt90 {
+  margin-top: 90px;
+}
+.mt100 {
+  margin-top: 100px;
+}
+.mt110 {
+  margin-top: 110px;
+}
+.mt120 {
+  margin-top: 120px;
+}
+.mt130 {
+  margin-top: 130px;
+}
+.mt140 {
+  margin-top: 140px;
+}
+.mt150 {
+  margin-top: 150px;
+}
