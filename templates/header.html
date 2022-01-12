@@ -6,17 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>header</title>
+    <link rel="stylesheet" href="../static/css/no.css">
+    <link rel="stylesheet" href="../static/css/common.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link rel="stylesheet" href="../static/css/header.css">
 </head>
 
 <body>
+    <div class="header_wrap">
+        <header class="flex header">
+            <a class="logo" href="#">
+                <h1>
+                    <img src="/static/image/logo.png" alt="#">
+                </h1>
+            </a>
+            <form class="form_common" action="#">
+                <input type="text" placeholder="검색">
+            </form>
+            <ul class="flex dirct_gnb">
+                <li>
+                    <a href="#">
+                        <i class="fas fa-sync-alt"><strong>트레이드</strong></i>
 
-    <header>
-        <a href="#">
-            <h1 class="logo">
-                <img src="#" alt="#">
-            </h1>
-        </a>
-    </header>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-user-circle"><strong>프로필</strong></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-sign-out-alt"><strong>로그아웃</strong></i>
+                    </a>
+                </li>
+            </ul>
+        </header>
+    </div>
 
 </body>
 

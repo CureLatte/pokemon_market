@@ -24,6 +24,10 @@ body {
   margin: 0;
 }
 
+li {
+  list-style: none;
+}
+
 /**
    * Render the `main` element consistently in IE.
    */
@@ -75,8 +79,14 @@ pre {
 
 a {
   background-color: transparent;
+  text-decoration: none;
 }
-
+h1 {
+  margin: 0;
+}
+ul {
+  margin: 0;
+}
 /**
    * 1. Remove the bottom border in Chrome 57-
    * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
