@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../static/css/upload_pokemon.css">
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
+    <link rel="stylesheet" href="../static/css/no.css">
+    <link rel="stylesheet" href="../static/css/common.css">
+    <link rel="stylesheet" href="../static/javascript/upload_pokemon.js">
+    <title>포켓몬 업로드</title>
+</head>
+<body>
+   {% include 'header.html' %}
+    <section id="container">
+        <div id="main-container">
+            <div id="container-head">
+                <input  type="text" id="sub-title" value="제목을 입력하세요">
+            </div>
+            <form id="post-form-container">
+                <div id="img-form">
+                    <p>이미지를 첨부하세요</p>
+                    <img id="preview_writing_image">
+                </div>
+                <div class="file-upload">
+                    <textarea name="desc" id="desc" cols="50" rows="5" wrap="hard" autocomplete="off"
+                        placeholder="140자 까지 등록 가능합니다."></textarea>
+                    <input style="display: none;" type="file" id="input_writing_image" accept=".jpg, .png" required>
+                    <label class="input-file-button" for="input_writing_image">
+                        이미지선택
+                    </label>
+                    <label><input type="checkbox" id="favourite-check">이 포켓몬은 ㅇㅇ 입니다</label>
+                </div>
+            </form>
+            <div>
+                 <label class="btn_common" id="submit-btn">
+                        확인
+                 </label>
+                <label class="btn_common" id="cancel-btn">
+                        취소
+                </label>
+            </div>
+        </div>
+    </section>
+    {% include 'footer.html' %}
+</body>
+
+</html>
