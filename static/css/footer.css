@@ -17,6 +17,10 @@
   color: white;
 
 }
+#footer #up-footer img{
+  width: 120px;
+  filter: opacity(0.5) drop-shadow(0 0 white);
+}
 #footer #down-footer{
   margin: 1% 6%;
   display: flex;
