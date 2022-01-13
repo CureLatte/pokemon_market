@@ -18,7 +18,7 @@
     <section id="container">
         <div id="main-container">
             <div id="container-head">
-                <input  type="text" id="sub-title" value="제목을 입력하세요">
+                <input  type="text" id="sub-title"  placeholder="제목을 입력하세요">
             </div>
             <form id="post-form-container">
                 <div id="img-form">
@@ -28,20 +28,19 @@
                 <div class="file-upload">
                     <textarea name="desc" id="desc" cols="50" rows="5" wrap="hard" autocomplete="off"
                         placeholder="140자 까지 등록 가능합니다."></textarea>
+                    <input type="text" id="price" placeholder="가격을 입력하세요">
                     <input style="display: none;" type="file" id="input_writing_image" accept=".jpg, .png" required>
                     <label class="input-file-button" for="input_writing_image">
                         이미지선택
                     </label>
-                    <label><input type="checkbox" id="favourite-check">이 포켓몬은 ㅇㅇ 입니다</label>
+                    <input type="button" class="btn_common" id="favourite-check" onclick="confirming()" value="포켓몬을 확인하세요 ">
                 </div>
             </form>
             <div>
-                 <label class="btn_common" id="submit-btn">
-                        확인
-                 </label>
-                <label class="btn_common" id="cancel-btn">
+                <input type="button" class="btn_common" id="submit-btn" onclick="posting()" value="확인">
+                <a class="btn_common" id="cancel-btn">
                         취소
-                </label>
+                </a>
             </div>
         </div>
     </section>
@@ -49,3 +48,5 @@
 </body>
 
 </html>
+
+<script src="../static/javascript/upload_pokemon.js"></script>
