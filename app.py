@@ -1,7 +1,6 @@
 from flask import Flask
 from flask import render_template
 from pymongo import MongoClient
-
 from views import upload_pokemon
 import certifi
 

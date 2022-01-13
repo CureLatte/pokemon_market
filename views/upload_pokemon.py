@@ -15,13 +15,10 @@ import jwt
 import hashlib
 import requests
 import test
-
+import random
 from datetime import datetime
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-import tensorflow as tf
-import numpy as np
 import os
-
+from pathlib import PureWindowsPath
 import certifi
 
 ca = certifi.where()
@@ -31,7 +28,6 @@ client = MongoClient("mongodb+srv://test:sparta@cluster0.cpg4z.mongodb.net/Clust
 db = client.dbpokemon
 
 SECRET_KEY = 'sparta'
-# model = tf.keras.models.load_model('경로')
 app = Flask(__name__)
 # Blueprint( 블루프린트 이름, __name__, url_prefix='url 접두어')
 # 해당 페이지의 접두어를 넣고 이동하면 됩니다.
@@ -44,8 +40,8 @@ def upload():
     return render_template('upload_pokemon.html')
 
 
-# 실제 URL : Localhost:5000/templates/api
-@bp.route('/upload', methods=['POST'])
+# 실제 URL : Localhost:5000/upload_pokemon/upload
+@bp.route('/', methods=['POST'])
 def upload_pokemon():
     desc_receive = request.form['desc_give']
     photo = request.files['photo_give']
@@ -57,15 +53,14 @@ def upload_pokemon():
         price = price
 
     extension = photo.filename.split('.')[-1]
-    today = datetime.datetime.now()
+    today = datetime.now()
     mytime = today.strftime('%Y-%m-%d-%H-%M-%S')
     filename = f'{mytime}.{extension}'
-    save_to = f'/static/image/{filename}'
+    save_to = f'\\static\\image\\{filename}'
 
-    test = os.path.abspath(__file__)
-    # print(test)
-    parent_path = Path(test).parent
-    abs_path = str(parent_path) + save_to
+    root_path = os.path.abspath(__file__)
+    a = PureWindowsPath(root_path)
+    abs_path = str(a.parents[1]) + save_to
 
     photo.save(abs_path)
 

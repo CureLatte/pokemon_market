@@ -18,14 +18,14 @@ function posting() {
 
     $.ajax({
         type: "POST",
-        url: "/upload",
+        url: "/upload_pokemon/",
         data: form_data,
         cache: false,
         contentType: false,
         processData: false,
         success: function (response) {
             alert(response["msg"])
-            window.location.href='/index_page'
+            window.location.reload()
         }
     });
 }
