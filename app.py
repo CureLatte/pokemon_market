@@ -3,7 +3,12 @@ from flask import render_template
 from pymongo import MongoClient
 
 from views import upload_pokemon
-client = MongoClient("mongodb+srv://test:sparta@cluster0.cpg4z.mongodb.net/Cluster0?retryWrites=true&w=majority")
+import certifi
+
+ca = certifi.where()
+
+client = MongoClient(
+    "mongodb+srv://test:sparta@cluster0.cpg4z.mongodb.net/Cluster0?retryWrites=true&w=majority", tlsCAFile=ca)
 
 # 블루프린트 import 꼭 하기
 
@@ -11,6 +16,7 @@ app = Flask(__name__)
 app.secret_key = 'sparta'
 
 db = client.dbpokemon
+
 
 
 @app.route('/')

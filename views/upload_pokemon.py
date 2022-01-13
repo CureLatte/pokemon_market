@@ -22,9 +22,13 @@ import tensorflow as tf
 import numpy as np
 import os
 
-client = MongoClient("mongodb+srv://test:sparta@cluster0.cpg4z.mongodb.net/Cluster0?retryWrites=true&w=majority")
+import certifi
 
-db = client.test
+ca = certifi.where()
+
+client = MongoClient("mongodb+srv://test:sparta@cluster0.cpg4z.mongodb.net/Cluster0?retryWrites=true&w=majority", tlsCAFile=ca)
+
+db = client.dbpokemon
 
 SECRET_KEY = 'sparta'
 # model = tf.keras.models.load_model('경로')
@@ -41,7 +45,7 @@ def upload():
 
 
 # 실제 URL : Localhost:5000/templates/api
-@bp.route('/upload_pokemon', methods=['POST'])
+@bp.route('/upload', methods=['POST'])
 def upload_pokemon():
     desc_receive = request.form['desc_give']
     photo = request.files['photo_give']
@@ -89,24 +93,24 @@ def upload_pokemon():
     #     '$addToSet': {'container': container_content}})
 
     return jsonify({'msg': '등록완료'})
-
-
-# @bp.route('/upload_pokemon/confirming', methods=['POST'])
-# def pokemon_confirming():
-#     photo = request.files['photo_give']
-#     test_datagen = ImageDataGenerator(rescale=1. / 255)
-#     test_dir = photo
-#     test_generator = test_datagen.flow_from_directory(
-#         test_dir,
-#         # target_size 는 학습할때 설정했던 사이즈와 일치해야 함
-#         target_size=(256, 256),
-#         color_mode="rgb",
-#         shuffle=False,
-#         # test 셋의 경우, 굳이 클래스가 필요하지 않음
-#         # 학습할때는 꼭 binary 혹은 categorical 로 설정해줘야 함에 유의
-#         class_mode=None,
-#         batch_size=1)
-#     pred = model.predict(test_generator)
+#
+#
+# # @bp.route('/upload_pokemon/confirming', methods=['POST'])
+# # def pokemon_confirming():
+# #     photo = request.files['photo_give']
+# #     test_datagen = ImageDataGenerator(rescale=1. / 255)
+# #     test_dir = photo
+# #     test_generator = test_datagen.flow_from_directory(
+# #         test_dir,
+# #         # target_size 는 학습할때 설정했던 사이즈와 일치해야 함
+# #         target_size=(256, 256),
+# #         color_mode="rgb",
+# #         shuffle=False,
+# #         # test 셋의 경우, 굳이 클래스가 필요하지 않음
+# #         # 학습할때는 꼭 binary 혹은 categorical 로 설정해줘야 함에 유의
+# #         class_mode=None,
+# #         batch_size=1)
+# #     pred = model.predict(test_generator)
 
 
 if __name__ == '__main__':

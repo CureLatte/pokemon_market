@@ -18,7 +18,7 @@ function posting() {
 
     $.ajax({
         type: "POST",
-        url: "/upload_pokemon",
+        url: "/upload",
         data: form_data,
         cache: false,
         contentType: false,
