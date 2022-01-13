@@ -1,7 +1,9 @@
-from flask import Flask
+from flask import Flask, render_template, jsonify, request, session, redirect, url_for
 from pymongo import MongoClient
 import uuid
 import datetime
+import hashlib
+import jwt
 
 
 client = MongoClient("mongodb+srv://test:sparta@cluster0.cpg4z.mongodb.net/Cluster0?retryWrites=true&w=majority")
@@ -10,6 +12,14 @@ app = Flask(__name__)
 app.secret_key = 'sparta'
 
 db = client.dbpokemon
+
+
+#비밀번호 해쉬
+
+# pw_hash = hashlib.sha256('qwer1234'.encode('utf-8')).hexdigest()
+#
+# db.users.update_one({'user_id': 'qwer3'}, {'$set': {'password': 'qwer1234'}})
+
 
 # a = {
 #     'avatar': 'default',
