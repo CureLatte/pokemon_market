@@ -56,10 +56,10 @@ def upload_pokemon():
     today = datetime.datetime.now()
     mytime = today.strftime('%Y-%m-%d-%H-%M-%S')
     filename = f'{mytime}.{extension}'
-    save_to = f'/static/images/post-contents/{filename}'
+    save_to = f'/static/image/{filename}'
 
     test = os.path.abspath(__file__)
-    print(test)
+    # print(test)
     parent_path = Path(test).parent
     abs_path = str(parent_path) + save_to
 
@@ -68,7 +68,7 @@ def upload_pokemon():
     db.market.update_one({'user_id': "qwer1"}, {'$set': {'photo': filename}})
     db.market.update_one({'user_id': "qwer1"}, {'$set': {'desc': desc_receive}})
     db.market.update_one({'user_id': "qwer1"}, {'$set': {'header': title}})
-    db.market.update_one({'user_id': "qwer1"}, {'$set': {'date': today}})
+    db.market.update_one({'user_id': "qwer1"}, {'$set': {'date': mytime}})
     db.market.update_one({'user_id': "qwer1"}, {'$set': {'price': price}})
     # container_content = {
 
