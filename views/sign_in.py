@@ -16,8 +16,9 @@ bp = Blueprint("sign_in", __name__, url_prefix='/sign_in')
 
 
 # /sign_in 생략이 되어있다
-@bp.route('/', methods=['POST'])
+@bp.route('/login', methods=['POST'])
 def api_login():
+    print('test')
     id_receive = request.form['id_give']
     pw_receive = request.form['pw_give']
 
@@ -33,3 +34,4 @@ def api_login():
         return jsonify({'result': 'success', 'token': token})
     else:
         return jsonify({'result': 'fail'})
+
