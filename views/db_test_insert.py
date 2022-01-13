@@ -1,5 +1,6 @@
 from flask import Flask
 from pymongo import MongoClient
+import uuid
 
 
 client = MongoClient("mongodb+srv://test:sparta@cluster0.cpg4z.mongodb.net/Cluster0?retryWrites=true&w=majority")
@@ -9,28 +10,31 @@ app.secret_key = 'sparta'
 
 db = client.dbpokemon
 
-a = {
-    'avatar': 'default',
-    'user_id': 'qwer2',
-    'password': 'qwer1234',
-    'phone_number': '010-2345-6789',
-    'gender': '여자',
-    'interest_poket': '파이리',
-    'point': 5000,
-    'poket_box': ['img']
-}
+# a = {
+#     'avatar': 'default',
+#     'user_id': 'qwer2',
+#     'password': 'qwer1234',
+#     'phone_number': '010-2345-6789',
+#     'gender': '여자',
+#     'interest_poket': '파이리',
+#     'point': 5000,
+#     'poket_box': ['img']
+# }
+#
+# b = {'poket_category':
+#     [
+#         '피카츄',
+#         '라이츄',
+#         '파이리',
+#         '꼬부기'
+#     ]
+# }
 
-b = {'poket_category':
-    [
-        '피카츄',
-        '라이츄',
-        '파이리',
-        '꼬부기'
-    ]
-}
+i = uuid.uuid1()
 
 c = {
-    'user_id': 'qwer1',
+    'maket_id': str(i),
+    'user_id': 'qwer2',
     'content': '작성글',
     'comment':
         [
@@ -52,4 +56,4 @@ c = {
 
 # db.category.insert_one(b)
 
-# db.market.insert_one(c)
+db.market.insert_one(c)
