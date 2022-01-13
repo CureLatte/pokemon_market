@@ -22,7 +22,7 @@ app.register_blueprint(model_test.bp)
 
 @app.route('/')
 def main():
-    return render_template('./index.html')
+    return render_template('palette.html')
 
 
 @app.route('/token_check', methods=['GET'])
@@ -42,4 +42,4 @@ def token_check():
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5000, debug=True)
+    app.run('0.0.0.0', port=5001, debug=True)
