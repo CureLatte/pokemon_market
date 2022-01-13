@@ -1,6 +1,7 @@
 from flask import Flask
 from pymongo import MongoClient
 import uuid
+import datetime
 
 
 client = MongoClient("mongodb+srv://test:sparta@cluster0.cpg4z.mongodb.net/Cluster0?retryWrites=true&w=majority")
@@ -31,24 +32,41 @@ db = client.dbpokemon
 # }
 
 i = uuid.uuid1()
+today = datetime.datetime.now()
+today_time = today.strftime('%Y-%m-%d %OH:%OM:%OS')
 
 c = {
     'maket_id': str(i),
-    'user_id': 'qwer2',
-    'content': '작성글',
+    'user_id': 'qwer1',
+    'content': '작성글2',
     'comment':
         [
             {
+                'photo_user_id': 'qwer3',
+                'photo_comment': '안녕하세요',
+                'photo_avatar': '작성자 avata3r'
+            },
+{
+                'photo_user_id': 'qwer1',
+                'photo_comment': '댓글 입니다',
+                'photo_avatar': '작성자 avatar1'
+            },
+{
                 'photo_user_id': 'qwer2',
-                'photo_comment': '댓글 내용',
-                'photo_avatar': '작성자 avatar'
+                'photo_comment': '그렇쿤요',
+                'photo_avatar': '작성자 avatar2'
+            },
+            {
+                'photo_user_id': 'qwer4',
+                'photo_comment': '아 네',
+                'photo_avatar': '작성자 avatar4'
             }
         ],
     'category': '카테고리',
     'photo': 'img',
-    'desc': '글내용',
-    'header': '제목',
-    'date': '작성시간',
+    'desc': '청도 프리미엄 특 왕 반건시 VIP 감동 선물세트',
+    'header': '제목2',
+    'date': today_time,
     'price': 1500
 }
 
