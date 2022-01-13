@@ -111,19 +111,22 @@
   margin: 0 auto;
   padding: 15px 20px;
   margin-top: 20px;
-  background-color: #0078ff;
+  background-color: #ffae00;
   border-radius: 4px;
   color: white;
   cursor: pointer;
 }
 #favourite-check{
   margin-top: 30px;
+  background-color: #ffae00;
 }
 #cancel-btn{
   margin-left: 400px;
   margin-top: 60px;
+  background-color: #ffae00;
 }
 #submit-btn{
   margin-left: 300px;
-  margin-top: 60px
+  margin-top: 60px;
+  background-color: #ffae00;
 }
