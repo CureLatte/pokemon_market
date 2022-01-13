@@ -1,3 +1,4 @@
+import datetime
 from flask import render_template
 from flask import request
 from flask import Blueprint
@@ -7,24 +8,36 @@ from flask import url_for
 from pymongo import MongoClient
 from flask import redirect
 from functools import wraps
-
 import requests
 import jwt
 import hashlib
 # import requests
 
 client = MongoClient(
-    "mongodb+srv://<id>:<password>>@cluster0.kgq1f.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+    "mongodb+srv://test:sparta@cluster0.cpg4z.mongodb.net/Cluster0?retryWrites=true&w=majority")
 
 db = client.dbpokemon
-
 # 해당 페이지의 접두어를 넣고 이동하면 됩니다.
 bp = Blueprint("detail_page", __name__, url_prefix='/detail_page')
+
 
 # 실제 URL : localhost:5000/detail_page
 
 
-@bp.route('/')
-def detail_page():
-    # 다른 주소로 보낼 떄 : redirect(url_for('블루프린트이름.함수이름'))
-    return render_template("detail_page.html")
+@bp.route('/<maket_id>')
+def load_my_feed(maket_id):
+    maket = db.market.find_one({'maket_id': maket_id}, {'_id': False})
+    owner_user = db.users.find_one(
+        {"user_id": maket["user_id"]}, {'_id': False})
+    if maket is None:
+        return render_template('not_found_detail.html')
+
+    else:
+        return render_template('detail_page.html', maket=maket, owner_user=owner_user)
+
+
+@bp.route('/', methods=['POST'])
+def upload_pokemon():
+    desc_receive = request.form['desc_give']
+
+    return jsonify({'msg': '등록완료'})
