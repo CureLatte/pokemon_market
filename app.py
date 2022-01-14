@@ -5,7 +5,6 @@ from pymongo import MongoClient
 from views import model_test, category
 
 
-
 client = MongoClient("mongodb+srv://test:sparta@cluster0.cpg4z.mongodb.net/Cluster0?retryWrites=true&w=majority")
 
 # 블루프린트 import 꼭 하기
@@ -22,7 +21,7 @@ app.register_blueprint(category.bp)
 
 @app.route('/')
 def main():
-    return render_template('base.html')
+    return render_template('palette.html')
 
 
 if __name__ == '__main__':
