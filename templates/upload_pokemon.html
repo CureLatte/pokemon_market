@@ -22,6 +22,7 @@
 </head>
 <body>
    {% include 'header.html' %}
+   <divv id="around">
     <section id="container">
         <div id="main-container">
             <div id="container-head">
@@ -35,7 +36,7 @@
                 <div class="file-upload">
                     <textarea name="desc" id="desc" cols="50" rows="5" wrap="hard" autocomplete="off"
                         placeholder="140자 까지 등록 가능합니다."></textarea>
-                    <input type="text" id="price" placeholder="가격을 입력하세요">
+                    <input type="text" id="price" placeholder="포인트를 입력하세요">
                     <input style="display: none;" type="file" id="input_writing_image" accept=".jpg, .png" required>
                     <label class="input-file-button" for="input_writing_image">
                         이미지선택
@@ -51,6 +52,7 @@
             </div>
         </div>
     </section>
+    </divv>
     {% include 'footer.html' %}
 </body>
 <script src="../static/javascript/upload_pokemon.js"></script>
