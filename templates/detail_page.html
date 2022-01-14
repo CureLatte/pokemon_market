@@ -17,6 +17,8 @@
     <script src="/static/javascript/detail_page.js"></script>
 </head>
 
+<!-- 진자 for 문으로 뿌리기 (나중에 가능하면 수정) -->
+
 <body>
     <div class="detail_page_wrap">
         <div class="flex">
@@ -107,13 +109,12 @@
             {% endif %}
 
 
-            <form action="#" class="mt50">
+            <form onsubmit="return false;" class="mt50">
                 <h5 class="sub_title">코맨트 남기기</h5>
                 <textarea class="mt20" name="comment" id="comment" cols="0" rows="0"></textarea>
                 <div class="btn_wrap mt20">
                     <button class="btn_common" onclick="posting_comment()" type="submit">작성</button>
                 </div>
-
             </form>
         </div>
 
@@ -168,6 +169,9 @@
             </div>
         </ul>
     </div>
+
+
+    <p id="sc_p" style="display: none;">{{maket['maket_id']}}</p>
 </body>
 
 </html>

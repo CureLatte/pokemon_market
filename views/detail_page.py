@@ -23,7 +23,6 @@ bp = Blueprint("detail_page", __name__, url_prefix='/detail_page')
 
 # 실제 URL : localhost:5000/detail_page
 
-
 @bp.route('/<maket_id>')
 def load_my_feed(maket_id):
     maket = db.market.find_one({'maket_id': maket_id}, {'_id': False})
@@ -38,6 +37,22 @@ def load_my_feed(maket_id):
 
 @bp.route('/', methods=['POST'])
 def upload_comment():
+    logedin_receive = request.form["logedin_give"]
+    sc_receive = request.form["sc_give"]
     comment_receive = request.form['comment_give']
-    print(comment_receive)
+    find_logein_user = db.users.find_one(
+        {"user_id": logedin_receive})["avatar"]
+
+    test = {"photo_user_id": logedin_receive,
+            "photo_comment": comment_receive,
+            "photo_avatar": find_logein_user,
+            }
+
+    update_feed = ({"maket_id": sc_receive},
+                   {
+        "$push": {"comment": test}
+    })
+
+    db.market.update_one(*update_feed)
+
     return jsonify({'msg': '등록완료'})
