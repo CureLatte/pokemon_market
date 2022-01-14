@@ -47,6 +47,4 @@
 #trans-box {
     margin-top: 50px;
     background-color: greenyellow;
-    display: flex;
-    flex-wrap: wrap;
 }
