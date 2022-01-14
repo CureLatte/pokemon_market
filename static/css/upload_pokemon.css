@@ -4,6 +4,8 @@
   align-items: center;
   min-height: 80vh;
   background-color: #ffae00;
+  width: 1200px;
+  margin: 0 auto;
 }
 #container {
   position: absolute;

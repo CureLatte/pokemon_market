@@ -37,7 +37,7 @@ def save_picture_to_time():
     mytime = today.strftime('%Y-%m-%d-%H-%M-%S')
     filename = f'{mytime}'
     # 파일 저장 경로 설정 (파일은 서버 컴퓨터 자체에 저장됨)
-    save_to = f'\\static\\image\\pokemons\\{filename}.{extension}'
+    save_to = f'\\static\\image\\{filename}.{extension}'
     # 현재 파일의 경로 파악
     root_path = os.path.abspath(__file__)
     # Path 객체로 변환
