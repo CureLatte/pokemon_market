@@ -4,10 +4,15 @@ function posting() {
     let title = $('#sub-title').val()
     let price = $('#price').val()
     let form_data = new FormData()
-
+    console.log(photo)
 
     if(typeof photo === "undefined")
-        return alert("이미지을 넣어 주세요")
+        return alert("포켓몬 사진을 넣어 주세요")
+    if(title == "")
+        return alert("제목을 입력해주세요")
+    if(desc == "")
+        return alert("내용을 입력해주세요")
+
 
 
     form_data.append("photo_give", photo)
@@ -47,19 +52,24 @@ inputImage.addEventListener("change", e => {
 })
 
 
-// function confirming(){
-//     let photo = $('#input_writing_image')[0].files[0]
-//     test_datagen = ImageDataGenerator(rescale = 1./255)
-//     test_dir = photo
-//     test_generator = test_datagen.flow_from_directory(
-//             test_dir,
-//             // # target_size 는 학습할때 설정했던 사이즈와 일치해야 함
-//             target_size =(256, 256),
-//             color_mode ="rgb",
-//             shuffle = False,
-//             // # test 셋의 경우, 굳이 클래스가 필요하지 않음
-//             // # 학습할때는 꼭 binary 혹은 categorical 로 설정해줘야 함에 유의
-//             class_mode = None,
-//             batch_size = 1)
-//     pred = model.predict(test_generator)
-// }
+function confirming(){
+    let photo = $('#input_writing_image')[0].files[0]
+    let form_data = new FormData()
+
+    form_data.append("file_give", photo)
+
+    $.ajax({
+        type: "POST",
+        url: "/machine/load",
+        data: form_data,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            alert(response["result"])
+            // window.location.href='/machine/result'
+        }
+    });
+
+
+}
