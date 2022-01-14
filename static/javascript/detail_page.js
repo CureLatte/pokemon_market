@@ -1,26 +1,15 @@
-function posting() {
+function posting_comment() {
     let comment = $('#comment').val()
-    let form_data = new FormData()
-
-    if (typeof photo === "undefined")
-        return alert("이미지을 넣어 주세요")
-
-    form_data.append("photo_give", photo)
-    form_data.append("desc_give", desc)
-    form_data.append("title_give", title)
-    form_data.append("price_give", price)
-
+    console.log(comment)
+    if (comment === "")
+        return alert("댓글을 남겨주세요")
 
     $.ajax({
         type: "POST",
-        url: "/upload",
-        data: form_data,
-        cache: false,
-        contentType: false,
-        processData: false,
+        url: "/detail_page",
+        data: { "comment_give": comment },
         success: function (response) {
             alert(response["msg"])
-            window.location.href = '/index_page'
         }
     });
 }

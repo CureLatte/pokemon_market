@@ -37,7 +37,7 @@ def load_my_feed(maket_id):
 
 
 @bp.route('/', methods=['POST'])
-def upload_pokemon():
-    desc_receive = request.form['desc_give']
-
+def upload_comment():
+    comment_receive = request.form['comment_give']
+    print(comment_receive)
     return jsonify({'msg': '등록완료'})
