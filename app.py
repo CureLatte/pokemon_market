@@ -2,7 +2,7 @@ from flask import Flask
 from flask import render_template,request,redirect,jsonify,url_for
 from pymongo import MongoClient
 # 작성해야하는 부분
-from views import model_test
+from views import model_test, sign_up
 import jwt
 
 
@@ -18,6 +18,7 @@ db = client.dbpokemon
 
 # 블루프린트 등록하는 부분 app.register_blueprint(파일이름.bp)
 app.register_blueprint(model_test.bp)
+app.register_blueprint(sign_up.bp)
 
 
 @app.route('/')

@@ -9,7 +9,7 @@ import datetime
 import os
 from pathlib import PureWindowsPath
 
-model = tf.keras.models.load_model('./static/model/model_SGD.h5')
+# model = tf.keras.models.load_model('./static/model/model_SGD.h5')
 
 bp = Blueprint("machine", __name__, url_prefix='/machine')
 

@@ -13,6 +13,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    overflow: hidden;
 }
 
 #sign-up-container {
@@ -21,7 +22,6 @@ body {
     width: 380px;
     position: relative;
     outline: none;
-    /*background-color: #fff;*/
 
 }
 
@@ -112,6 +112,7 @@ input:valid ~ .login-group-label {
 #auto-poket {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    position: absolute;
 }
 
 #auto-poket div{
@@ -120,7 +121,6 @@ input:valid ~ .login-group-label {
     background-color: #fff;
     padding: 12px 0 12px 15px;
     cursor: pointer;
-    position: fixed;
 }
 
 #auto-poket div:hover {
