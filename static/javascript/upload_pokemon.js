@@ -1,10 +1,35 @@
+let global_result = ''
+let global_id = ''
+
+
+$(document).ready(function (){
+    $.ajax({
+        type: "GET",
+        url: "/common/token_check",
+        data: {},
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            global_id = response["result"]
+
+
+        }
+    });
+
+})
+
 function posting() {
     let photo = $('#input_writing_image')[0].files[0]
     let desc = $('#desc').val()
     let title = $('#sub-title').val()
     let price = $('#price').val()
+    let result = global_result
+    let user_id = global_id
     let form_data = new FormData()
-    console.log(photo)
+    console.log(user_id)
+
+
 
     if(typeof photo === "undefined")
         return alert("포켓몬 사진을 넣어 주세요")
@@ -19,6 +44,8 @@ function posting() {
     form_data.append("desc_give", desc)
     form_data.append("title_give", title)
     form_data.append("price_give", price)
+    form_data.append("result_give", result)
+    form_data.append("id_give", user_id)
 
 
     $.ajax({
@@ -58,6 +85,7 @@ function confirming(){
 
     form_data.append("file_give", photo)
 
+
     $.ajax({
         type: "POST",
         url: "/machine/load",
@@ -66,6 +94,7 @@ function confirming(){
         contentType: false,
         processData: false,
         success: function (response) {
+            global_result = response["result"]
             alert(response["result"])
             // window.location.href='/machine/result'
         }

@@ -74,7 +74,6 @@ def predict_poketmon():
         if k == max_value:
             result = poket_all_class[index]
             break
-    db.market.update_one({'user_id': "qwer1"}, {'$set': {'category': result}})
     return jsonify({'result': result})
 
 
