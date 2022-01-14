@@ -4,9 +4,7 @@ import datetime
 from flask import Flask, render_template, jsonify, request, session, redirect, url_for, Blueprint
 import hashlib
 
-
 app = Flask(__name__)
-
 app.secret_key = 'sparta'
 
 client = MongoClient("mongodb+srv://test:sparta@cluster0.cpg4z.mongodb.net/Cluster0?retryWrites=true&w=majority")
@@ -15,10 +13,8 @@ db = client.dbpokemon
 bp = Blueprint("sign_in", __name__, url_prefix='/sign_in')
 
 
-# /sign_in 생략이 되어있다
 @bp.route('/login', methods=['POST'])
 def api_login():
-    print('test')
     id_receive = request.form['id_give']
     pw_receive = request.form['pw_give']
 
@@ -34,4 +30,3 @@ def api_login():
         return jsonify({'result': 'success', 'token': token})
     else:
         return jsonify({'result': 'fail'})
-
