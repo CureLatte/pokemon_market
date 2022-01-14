@@ -2,7 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
+  min-height: 78vh;
+  max-width: 1200px;
+  margin: 0 auto;
   background-color: #ffae00;
 }
 #container {
