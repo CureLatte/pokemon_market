@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+#main {
+    margin: 0 auto;
+    width: 1200px;
+    min-height: 100vh;
+}
+#profile-box {
+    display: flex;
+    justify-content: center;
+}
+#profile-box #my-profile {
+    background-color: yellow;
+    margin-right: 100px;
+
+}
+#profile-box #my-profile #profile-img {
+    width: 250px;
+    height: 250px;
+    border-radius: 70%;
+    overflow: hidden;
+}
+#profile-box #my-profile #profile-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#profile-box #my-pokemone {
+    background-color: green;
+    width: 540px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.pokemone {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    margin: 15px;
+}
+.pokemone img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#trans-box {
+    margin-top: 50px;
+    background-color: greenyellow;
+    display: flex;
+    flex-wrap: wrap;
+}
