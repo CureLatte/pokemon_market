@@ -20,15 +20,11 @@ def load_category():
     dict_by_letter = {}
     for index, poketmon_name in category_sort:
         string_list = list(poketmon_name)
-        print('string_list : ', string_list)
         first_letter_index = int((ord(string_list[0]) - BASE_CODE) / CHOSUNG)
         if category_korean[first_letter_index] not in dict_by_letter:
             dict_by_letter[category_korean[first_letter_index]] = [poketmon_name]
         else:
             list_by_letter = dict_by_letter[category_korean[first_letter_index]]
             list_by_letter.append(poketmon_name)
-
-    print(dict_by_letter)
-
     return render_template('base.html', container=dict_by_letter, koreans=category_korean)
 
