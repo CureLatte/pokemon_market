@@ -10,10 +10,25 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../static/css/no.css">
     <link rel="stylesheet" href="../static/css/common.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+        function login_check(){
+            console.log('login_function on')
+            $.ajax({
+                type: 'GET',
+                url : '/common/token_check',
+                data: {},
+                success: function(response){
+                    alert(response['user_id'])
+                }
+            })
+        }
+    </script>
 </head>
 
 <body>
     <div class="inner_padding">
+        <button onclick="login_check()">로그인 정보 체크</button>
         <span class="span_common">송금</span>
         <h4 class="h4_common mt30">간편하고 안전하게<br>
             수수료는 평생 무료로,<br>

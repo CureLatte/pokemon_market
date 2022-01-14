@@ -20,7 +20,16 @@ app.register_blueprint(sign_in.bp)
 
 @app.route('/')
 def main():
-    return render_template('sign_in.html')
+    token_receive = request.cookies.get('mytoken')
+    if token_receive is not None:
+        return render_template('palette.html')
+    else:
+        return render_template('sign_in.html')
+
+
+@app.route('/main_page')
+def goto_main():
+    return render_template('palette.html')
 
 
 if __name__ == '__main__':
