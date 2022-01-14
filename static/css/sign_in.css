@@ -72,3 +72,10 @@ body {
 .container .input-box input[type="submit"]:hover {
     background: #e91e63;
 }
+#help-box {
+    max-width: 300px
+}
+#help-login{
+    font-size: 12px;
+    color: #e91e63;
+}
