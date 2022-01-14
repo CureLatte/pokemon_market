@@ -16,6 +16,7 @@ def token_check():
     try:
         if token_receive is not None:
             payload = jwt.decode(token_receive, app.secret_key, algorithms=['HS256'])
+            # print(payload['user_id'])
             return jsonify({'user_id': payload['user_id']})
         else:
             return jsonify({'user_id': 'None'})

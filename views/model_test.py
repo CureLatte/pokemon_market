@@ -74,6 +74,7 @@ def predict_poketmon():
         if k == max_value:
             result = poket_all_class[index]
             break
+    # print(result)
     return jsonify({'result': result})
 
 
