@@ -2,11 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 91.2vh;
+  min-height: 80vh;
   background-color: #ffae00;
 }
 #container {
-  position: fixed;
+  position: absolute;
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
