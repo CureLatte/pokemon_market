@@ -20,7 +20,7 @@ app.register_blueprint(sign_in.bp)
 
 @app.route('/')
 def main():
-    return render_template('palette.html')
+    return render_template('sign_in.html')
 
 
 if __name__ == '__main__':
