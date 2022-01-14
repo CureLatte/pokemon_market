@@ -4,7 +4,7 @@ from pymongo import MongoClient
 from views import upload_pokemon
 import certifi
 # 작성해야하는 부분
-from views import model_test, common
+from views import model_test, common, sign_in
 import jwt
 
 ca = certifi.where()
@@ -20,11 +20,21 @@ db = client.dbpokemon
 # 블루프린트 등록하는 부분 app.register_blueprint(파일이름.bp)
 app.register_blueprint(model_test.bp)
 app.register_blueprint(common.bp)
+app.register_blueprint(sign_in.bp)
 
 
 
 @app.route('/')
 def main():
+    token_receive = request.cookies.get('mytoken')
+    if token_receive is not None:
+        return render_template('palette.html')
+    else:
+        return render_template('sign_in.html')
+
+
+@app.route('/main_page')
+def goto_main():
     return render_template('palette.html')
 
 
