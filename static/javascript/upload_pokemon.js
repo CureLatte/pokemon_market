@@ -11,7 +11,8 @@ $(document).ready(function (){
         contentType: false,
         processData: false,
         success: function (response) {
-            global_id = response["result"]
+            global_id = response["user_id"]
+            // console.log(global_id)
 
 
         }
@@ -27,7 +28,7 @@ function posting() {
     let result = global_result
     let user_id = global_id
     let form_data = new FormData()
-    console.log(user_id)
+
 
 
 
@@ -57,7 +58,7 @@ function posting() {
         processData: false,
         success: function (response) {
             alert(response["msg"])
-            window.location.reload()
+            // window.location.reload()
         }
     });
 }
@@ -96,6 +97,7 @@ function confirming(){
         success: function (response) {
             global_result = response["result"]
             alert(response["result"])
+            // console.log(global_result)
             // window.location.href='/machine/result'
         }
     });
