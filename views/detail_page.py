@@ -56,3 +56,44 @@ def upload_comment():
     db.market.update_one(*update_feed)
 
     return jsonify({'msg': '등록완료'})
+
+
+@bp.route('/trade', methods=['POST'])
+def trade():
+
+    sc_receive = request.form["sc_give"]
+    price_receive = int(request.form["price_give"])
+    seller_receive = request.form["seller_give"]
+    logedin_receive = request.form["logedin_give"]
+    seller = db.users.find_one(
+        {"user_id": seller_receive})
+    logein_user = db.users.find_one(
+        {"user_id": logedin_receive})
+
+    seller_poketmon = db.market.find_one({"maket_id": sc_receive})
+
+    seller_point = int(seller["point"])
+    logein_user_point = int(logein_user["point"])
+
+    sp = seller_point + price_receive  # 파는사람 포인트 최종
+    lp = logein_user_point - price_receive  # "사는사람 포인트 최종
+
+    if lp < 0:
+        return jsonify({'msg': '보유중인 포인트가 부족합니다!'})
+
+    # 나중에 93번에 포켓몬 이름 들어오도록 나중에 수정
+    db.users.update_one({"user_id": seller_receive}, {"$set": {"point": sp}})
+    db.users.update_one({"user_id": logedin_receive}, {"$set": {"point": lp}})
+    db.users.update_one(
+        {"user_id": logein_user["user_id"]},
+        {
+            "$push": {
+                "poket_box":
+                {
+                    "포켓몬 이름 들어오도록 나중에 수정": seller_poketmon["photo"]
+                }
+            }
+        }
+    )
+    db.market.delete_one({"maket_id": sc_receive})
+    return jsonify({'msg': '등록완료'})

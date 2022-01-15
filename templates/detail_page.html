@@ -52,8 +52,10 @@
                 </ul>
                 <div class="detail_page_btn flex mt30">
                     <button class="btn_common"><i class="fas fa-heart"><strong>찜</strong></i></button>
-                    <button class="btn_common"><i class="fas fa-comments"><strong>문의</strong></i></button>
-                    <button class="btn_common"><i class="fas fa-sync-alt"><strong>트레이드</strong></i></button>
+                    <a href="#comment_h"><button class="btn_common"><i
+                                class="fas fa-comments"><strong>문의</strong></i></button></a>
+                    <button class="btn_common" onclick="trade()"><i
+                            class="fas fa-sync-alt"><strong>트레이드</strong></i></button>
                 </div>
             </div>
         </div>
@@ -71,12 +73,11 @@
             <div class="detail_page_seller">
                 <a href="#">
                     <img src="/static/image/{{owner_user['avatar']}}" alt="">
-                    <span>{{ maket['user_id'] }}</span>
-
+                    <span id="seller">{{ maket['user_id'] }}</span>
                 </a>
             </div>
             <h5 class="h5_detail_page m0 mt70">{{ maket['header'] }}</h5>
-            <h4 class="h4_detail_page m0 mt20 bbn">{{ maket['price'] }}원</h4>
+            <h4 class="h4_detail_page m0 mt20 bbn"><span id="price">{{ maket['price'] }}</span>원</h4>
             <div class="detail_page_text m0">
                 <p class="m0">
                     {{ maket['desc'] }}
@@ -109,7 +110,7 @@
             {% endif %}
 
 
-            <form onsubmit="return false;" class="mt50">
+            <form onsubmit="return false;" class="mt50" id="comment_h">
                 <h5 class="sub_title">코맨트 남기기</h5>
                 <textarea class="mt20" name="comment" id="comment" cols="0" rows="0"></textarea>
                 <div class="btn_wrap mt20">

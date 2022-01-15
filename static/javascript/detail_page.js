@@ -7,10 +7,8 @@ $(document).ready(function () {
         data: {},
         success: function (response) {
             let id = response['user_id']
-            console.log(response)
             hi = id;
             if (id == 'None') {
-                console.log("토큰이 None입니다.")
                 window.location.href = '/main_page'
             }
         }
@@ -30,6 +28,23 @@ function posting_comment() {
         success: function (response) {
             alert(response["msg"])
             window.location.reload()
+        }
+    });
+}
+
+
+function trade() {
+
+    let seller = $('#seller').text()
+    let price = $('#price').text()
+    let sc = $('#sc_p').text()
+    $.ajax({
+        type: "POST",
+        url: "/detail_page/trade",
+        data: { "seller_give": seller, "logedin_give": hi, "price_give": price, "sc_give": sc },
+        success: function (response) {
+            alert(response["msg"])
+            window.location.href = '/main_page'
         }
     });
 }
