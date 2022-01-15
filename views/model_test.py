@@ -10,6 +10,7 @@ import os
 from pathlib import PureWindowsPath
 from pymongo import MongoClient
 import certifi
+import shutil
 
 ca = certifi.where()
 
@@ -26,6 +27,16 @@ bp = Blueprint("machine", __name__, url_prefix='/machine')
 
 @bp.route('/load', methods=['POST'])
 def save_picture_to_time():
+    print('server on')
+    root_path = os.path.abspath(__file__)
+    # Path 객체로 변환
+    p = PureWindowsPath(root_path)
+    # 절대 경로로 변환 해줌
+    img_storage = str(p.parents[1])+'\\static\\image\\pokemons\\'
+    if os.path.exists(img_storage):
+        shutil.rmtree(img_storage)
+    os.mkdir(img_storage)
+
     file = request.files['file_give']
     # 해당 파일에서 확장자명만 추출
     extension = file.filename.split('.')[-1]
@@ -39,10 +50,7 @@ def save_picture_to_time():
     # 파일 저장 경로 설정 (파일은 서버 컴퓨터 자체에 저장됨)
     save_to = f'\\static\\image\\pokemons\\{filename}.{extension}'
     # 현재 파일의 경로 파악
-    root_path = os.path.abspath(__file__)
-    # Path 객체로 변환
-    p = PureWindowsPath(root_path)
-    # 절대 경로로 변환 해줌
+
     last_path = str(p.parents[1]) + save_to
     # 파일 저장!
     file.save(last_path)
@@ -51,7 +59,6 @@ def save_picture_to_time():
 
 @bp.route('/result')
 def predict_poketmon():
-    global result
     test_datagen = ImageDataGenerator(rescale=1. / 255)
     # 이미지가 모여있는 폴더
     test_dir = './static/image'
@@ -74,7 +81,7 @@ def predict_poketmon():
         if k == max_value:
             result = poket_all_class[index]
             break
-    # print(result)
+
     return jsonify({'result': result})
 
 

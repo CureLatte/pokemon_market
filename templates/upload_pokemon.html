@@ -1,61 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-
+    <meta charset="UTF-8">
+    <title>Title</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/upload_pokemon.css">
+
     <link rel="stylesheet" href="../static/css/header.css">
     <link rel="stylesheet" href="../static/css/footer.css">
     <link rel="stylesheet" href="../static/css/no.css">
     <link rel="stylesheet" href="../static/css/common.css">
+    <link rel="stylesheet" href="../static/css/upload_pokemon.css">
+    <script src="../static/javascript/upload_pokemon.js" async></script>
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 
-
-<!--    <link rel="stylesheet" href="../static/javascript/upload_pokemon.js">-->
-
-    <title>포켓몬 업로드</title>
 </head>
 <body>
-   {% include 'header.html' %}
-   <divv id="around">
-    <section id="container">
-        <div id="main-container">
-            <div id="container-head">
-                <input  type="text" id="sub-title"  placeholder="제목을 입력하세요">
-            </div>
-            <form id="post-form-container">
-                <div id="img-form">
-                    <p>이미지를 첨부하세요</p>
+{% include 'header.html' %}
+<div class="pocket_book_main_wrapper">
+    <div class='pocket_book_left_box'>
+        <div class="pocket_book_left_box_wrapper">
+            <div class="pocket_book_left_box_row">
+                <div class="pocket_book_image_preview">
                     <img id="preview_writing_image">
                 </div>
-                <div class="file-upload">
-                    <textarea name="desc" id="desc" cols="50" rows="5" wrap="hard" autocomplete="off"
-                        placeholder="140자 까지 등록 가능합니다."></textarea>
-                    <input type="text" id="price" placeholder="포인트를 입력하세요">
-                    <input style="display: none;" type="file" id="input_writing_image" accept=".jpg, .png" required>
-                    <label class="input-file-button" for="input_writing_image">
-                        이미지선택
-                    </label>
-                    <input type="button" class="btn_common" id="favourite-check" onclick="confirming()" value="포켓몬을 확인하세요 ">
+                <div class="pocket_book_image_preview_wrapper">
+                    <input style=' display: none' type="file" id="input_file" accept=".jpg, .png" required>
+                    <label for="input_file" onclick="">업로드</label>
+                    <div class="pocket_book_image_predict_tag">
+                        <p id="pokemon_name"></p>
+                    </div>
+                    <div class="pocket_book_image_predict">
+                        <div class="spinner_container" id="loading">
+                            <i class="fas fa-spinner fa-3x fa-spin"></i>
+                        </div>
+                        <img id="predict_writing_image">
+                    </div>
                 </div>
-            </form>
-            <div>
-                <input type="button" class="btn_common" id="submit-btn" onclick="posting()" value="확인">
-                <a class="btn_common" id="cancel-btn">
-                        취소
-                </a>
+            </div>
+            <div class="pocket_book_content_box">
+                <div class="pocket_book_content_box_header">
+                    <div class="pocket_book_content_box_row">
+                        <p>제목</p>
+                        <input type="text" id="title">
+                    </div>
+
+                </div>
+                <div class="pocket_book_content_box_wrapper">
+                    <div class="pocket_book_content_box_row">
+                        <p>가격</p>
+                        <input type="text" id="price">
+                    </div>
+                    <div class="pocket_book_content_box_row">
+                        <p>포켓몬 레벨</p>
+                        <input type="text" id="level">
+                    </div>
+                    <div class="pocket_book_content_box_row">
+                        <p>좋아하는 먹이</p>
+                        <input type="text" id="like_feed">
+                    </div>
+                    <div class="pocket_book_content_box_row">
+                        <p>잡은 지역</p>
+                        <input type="text" id="catch_location">
+                    </div>
+                    <div class="pocket_book_content_box_row" id="trade_location">
+                        <p>트레이드 지역 </p>
+                        <input type="text">
+                    </div>
+                </div>
+
+
             </div>
         </div>
-    </section>
-    </divv>
-    {% include 'footer.html' %}
+    </div>
+    <div class="pocket_book_center_line"></div>
+
+    <div class="pocket_book_right_box">
+        <div class="pocket_book_right_box_wrapper">
+            <p>세부내용</p>
+            <textarea id="desc"></textarea>
+            <button class="btn_upload" onclick="posting()">
+                <p>등록!</p>
+            </button>
+        </div>
+    </div>
+</div>
+{% include 'footer.html' %}
 </body>
-<script src="../static/javascript/upload_pokemon.js"></script>
 </html>
-
-
