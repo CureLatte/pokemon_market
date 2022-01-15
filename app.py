@@ -3,8 +3,8 @@ from flask import render_template, request, redirect, jsonify, url_for
 from pymongo import MongoClient
 from views import upload_pokemon
 import certifi
-# 작성해야하는 부분
-from views import model_test, common, sign_in, upload_pokemon
+from views import model_test, common, sign_in, upload_pokemon,sign_up
+
 import jwt
 
 ca = certifi.where()
@@ -17,11 +17,11 @@ app.secret_key = 'sparta'
 
 db = client.dbpokemon
 
-# 블루프린트 등록하는 부분 app.register_blueprint(파일이름.bp)
 app.register_blueprint(model_test.bp)
 app.register_blueprint(common.bp)
 app.register_blueprint(sign_in.bp)
 app.register_blueprint(upload_pokemon.bp)
+app.register_blueprint(sign_up.bp)
 
 
 @app.route('/')
@@ -40,3 +40,4 @@ def goto_main():
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5001, debug=True)
+
