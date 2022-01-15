@@ -20,7 +20,7 @@ db = client.dbpokemon
 
 SECRET_KEY = 'sparta'
 
-model = tf.keras.models.load_model('./static/model/model_SGD.h5')
+# model = tf.keras.models.load_model('./static/model/model_SGD.h5')
 
 bp = Blueprint("machine", __name__, url_prefix='/machine')
 

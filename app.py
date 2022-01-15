@@ -1,7 +1,6 @@
 from flask import Flask
 from flask import render_template, request, redirect, jsonify, url_for
 from pymongo import MongoClient
-# 작성해야하는 부분
 from views import model_test, common, sign_in
 import jwt
 
@@ -15,7 +14,6 @@ db = client.dbpokemon
 app.register_blueprint(model_test.bp)
 app.register_blueprint(common.bp)
 app.register_blueprint(sign_in.bp)
-
 
 @app.route('/')
 def main():
