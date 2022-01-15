@@ -15,6 +15,7 @@ db = client.dbpokemon
 
 # 블루프린트 등록하는 부분 app.register_blueprint(파일이름.bp)
 
+app.register_blueprint(model_test.bp)
 app.register_blueprint(common.bp)
 app.register_blueprint(sign_in.bp)
 app.register_blueprint(main_page.bp)
