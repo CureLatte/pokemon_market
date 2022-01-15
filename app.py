@@ -1,10 +1,16 @@
 from flask import Flask
 from flask import render_template, request, redirect, jsonify, url_for
 from pymongo import MongoClient
-from views import model_test, common, sign_in, sign_up
+from views import upload_pokemon
+import certifi
+from views import model_test, common, sign_in, upload_pokemon,sign_up
+
 import jwt
 
-client = MongoClient("mongodb+srv://test:sparta@cluster0.cpg4z.mongodb.net/Cluster0?retryWrites=true&w=majority")
+ca = certifi.where()
+
+client = MongoClient(
+    "mongodb+srv://test:sparta@cluster0.cpg4z.mongodb.net/Cluster0?retryWrites=true&w=majority", tlsCAFile=ca)
 
 app = Flask(__name__)
 app.secret_key = 'sparta'
@@ -14,7 +20,9 @@ db = client.dbpokemon
 app.register_blueprint(model_test.bp)
 app.register_blueprint(common.bp)
 app.register_blueprint(sign_in.bp)
+app.register_blueprint(upload_pokemon.bp)
 app.register_blueprint(sign_up.bp)
+
 
 @app.route('/')
 def main():
