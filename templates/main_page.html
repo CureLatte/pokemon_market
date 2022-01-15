@@ -8,6 +8,8 @@
     <title>상세페이지</title>
     <link rel="stylesheet" href="../static/css/no.css">
     <link rel="stylesheet" href="../static/css/common.css">
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
     <link rel="stylesheet" href="../static/css/main_page.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -15,20 +17,26 @@
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="/static/javascript/detail_page.js"></script>
+    <script src="/static/javascript/main_page.js"></script>
 </head>
 
 <body>
+    <header>
+        {% include 'header.html' %}
+    </header>
     <div class="main_banner">
         <div>
             <span class="banner_span">모든지역의 트레이더들과 실시간 거래</span>
             <h4 class="banner_h4">포켓몬 트레이드 No.1 포켓스토어</h4>
             <form action="#" class="form_common mt40">
-                <input type="text" maxlength="10">
-                <i class="fas fa-search"></i>
+                <input id="search" type="text" maxlength="10">
+                <img src="/static/image/main_images/Pokemon-GO_96px.png">
+                <div id="auto-search"></div>
             </form>
         </div>
         <p class="main_banner_ball"><img src="/static/image/main_images/Pokeball_96px.png" alt="1"></p>
         <p class="main_banner_ball"><img src="/static/image/main_images/Ash-Hat_96px.png" alt="2"></p>
+        <p class="main_banner_modal"><img src="/static/image/main_images/Pokeball_96px.png" onclick="test()"></p>
     </div>
     <ul class="category_icon flex mt50">
         <li>
@@ -92,52 +100,44 @@
         <div>
             <h4 class="h4_common main_common">현재 가장 핫한 트레이드! <a href="#">모두보기</a></h4>
             <div class="flex mt30">
+                {% for i in range(4) %}
                 <li>
                     <a href="#">
                         <div>
-                            <img src="/static/image/main_images/Pikachu_96px.png" alt="1">
+                            <img src="/static/image/main_images/{{ market_list[i]['photo'] }}" />
                         </div>
 
-                        <span>노목7강 팜 선 제시 ㄱㄱ</span>
-                        <p class="mt30">200,000원<strong>5시간전</strong></p>
+                        <span>{{ market_list[i]['header'] }}</span>
+                        <p class="mt30">{{ market_list[i]['price'] }}원<strong>{{ market_list[i]['date'] }}</strong></p>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="/static/image/main_images/Pikachu_96px.png" alt="1">
-                        </div>
-
-                        <span>노목7강 팜 선 제시 ㄱㄱ</span>
-                        <p class="mt30">200,000원<strong>5시간전</strong></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="/static/image/main_images/Pikachu_96px.png" alt="1">
-                        </div>
-
-                        <span>노목7강 팜 선 제시 ㄱㄱ</span>
-                        <p class="mt30">200,000원<strong>5시간전</strong></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="/static/image/main_images/Pikachu_96px.png" alt="1">
-                        </div>
-
-                        <span>노목7강 팜 선 제시 ㄱㄱ</span>
-                        <p class="mt30">200,000원<strong>5시간전</strong></p>
-                    </a>
-                </li>
-
+                {% endfor %}
             </div>
         </div>
+        <div class="prod-list-content">
+            <h4 class="h4_common main_common h4-content">최신순 컨텐츠!</h4>
+            {% set market_len = market_list | length %}
+            {% for i in range(0, market_len, 5) %}
+                <div class="flex content-wrapper mt30">
+                {% for j in range(i, i+5) if j < market_list | length %}
+                <li>
+                    <a href="#">
+                        <div>
+                            <img src="/static/image/main_images/{{ market_list[i]['photo'] }}" />
+                        </div>
+
+                        <span>{{ market_list[j]['header'] }}</span>
+                        <p class="mt30">{{ market_list[j]['price'] }}원<strong>{{ market_list[j]['date'] }}</strong></p>
+                    </a>
+                </li>
+                {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
     </ul>
-
-
+    <footer>
+        {% include 'footer.html' %}
+    </footer>
 </body>
 
 </html>

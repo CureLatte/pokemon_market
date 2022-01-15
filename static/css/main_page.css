@@ -8,6 +8,10 @@ body {
   position: relative;
 }
 
+.h4-content {
+  margin-top: 20px;
+}
+
 .main_common a {
   position: absolute;
   text-decoration: none;
@@ -31,6 +35,7 @@ body {
   width: 100%;
   height: 500px;
 }
+
 .main_banner .main_banner_ball {
   position: absolute;
   opacity: 0.5;
@@ -68,6 +73,23 @@ body {
   top: 10%;
 }
 
+.main_banner .main_banner_modal {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+}
+
+.main_banner .main_banner_modal img {
+  width: 80px;
+  height: 80px;
+}
+
+.main_banner .main_banner_modal:nth-child(4) {
+  right: 14%;
+  top: 34%;
+  cursor: pointer;
+}
+
 .main_banner > div {
   position: absolute;
   top: 50%;
@@ -94,18 +116,43 @@ body {
 }
 .main_banner .form_common input {
   height: 70px;
-  padding-left: 100px;
-  font-size: 40px;
+  padding-left: 20px;
+  font-size: 30px;
   line-height: 1;
 }
 
-.main_banner .form_common i {
+.main_banner .form_common img {
   position: absolute;
-  font-size: 35px;
-  left: 35px;
+  cursor: pointer;
+  width: 80px;
+  right: 20px;
   top: 50%;
+  border-left: 2px solid lightgray;
+  padding-left: 20px;
   transform: translateY(-50%);
 }
+
+.main_banner #auto-search {
+  position: absolute;
+  display: none;
+  width: 680px;
+  background-color: #fff;
+  text-align: left;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 1px solid lightgray;
+}
+
+.main_banner #auto-search div{
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px 2px 10px 20px;
+}
+
+.main_banner #auto-search div:hover{
+  background: #f5d400;
+}
+
 .category_icon {
 }
 
@@ -149,6 +196,20 @@ body {
   border-top: 1px solid #ddd;
   padding-top: 80px;
 }
+
+.content-wrapper {
+  justify-content: flex-start;
+}
+
+.prod_list .prod-list-content li {
+  margin: 0 10px;
+  width: 220px;
+}
+
+.prod_list .prod-list-content li div {
+  width: 160px;
+}
+
 .prod_list > div {
   width: 1200px;
   margin: 0 auto;
@@ -187,6 +248,9 @@ body {
   font-size: 18px;
   font-weight: 600;
   display: block;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  overflow: hidden;
 
   text-align: left;
 }

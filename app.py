@@ -2,7 +2,7 @@ from flask import Flask
 from flask import render_template, request, redirect, jsonify, url_for
 from pymongo import MongoClient
 # 작성해야하는 부분
-from views import common, sign_in
+from views import common, sign_in, main_page
 
 
 client = MongoClient(
@@ -17,6 +17,7 @@ db = client.dbpokemon
 
 app.register_blueprint(common.bp)
 app.register_blueprint(sign_in.bp)
+app.register_blueprint(main_page.bp)
 
 
 @app.route('/')
@@ -26,11 +27,6 @@ def main():
         return render_template('palette.html')
     else:
         return render_template('sign_in.html')
-
-
-@app.route('/main_page')
-def goto_main():
-    return render_template('main_page.html')
 
 
 if __name__ == '__main__':
