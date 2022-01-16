@@ -36,7 +36,7 @@
                         <p id="pokemon_name"></p>
                     </div>
                     <div class="pocket_book_image_predict">
-                        <div class="spinner_container" id="loading">
+                        <div class="spinner_container" style="color:white" id="loading">
                             <i class="fas fa-spinner fa-3x fa-spin"></i>
                         </div>
                         <img id="predict_writing_image">
@@ -44,18 +44,9 @@
                 </div>
             </div>
             <div class="pocket_book_content_box">
-                <div class="pocket_book_content_box_header">
-                    <div class="pocket_book_content_box_row">
-                        <p>제목</p>
-                        <input type="text" id="title">
-                    </div>
 
-                </div>
                 <div class="pocket_book_content_box_wrapper">
-                    <div class="pocket_book_content_box_row">
-                        <p>가격</p>
-                        <input type="text" id="price">
-                    </div>
+
                     <div class="pocket_book_content_box_row">
                         <p>포켓몬 레벨</p>
                         <input type="text" id="level">
@@ -78,11 +69,21 @@
             </div>
         </div>
     </div>
-    <div class="pocket_book_center_line"></div>
-
     <div class="pocket_book_right_box">
         <div class="pocket_book_right_box_wrapper">
             <p>세부내용</p>
+            <div class="pocket_book_content_box_header">
+                <div class="pocket_book_content_box_row_right">
+                    <p>제목</p>
+                    <input type="text" id="title">
+                </div>
+
+            </div>
+            <div class="pocket_book_content_box_row_right mt20">
+                <p>가격</p>
+                <input type="text" id="price">
+            </div>
+            <p class='mt20' style="font-size:20px;">내용</p>
             <textarea id="desc"></textarea>
             <button class="btn_upload" onclick="posting()">
                 <p>등록!</p>
