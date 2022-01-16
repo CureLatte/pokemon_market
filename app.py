@@ -2,7 +2,8 @@ from flask import Flask
 from flask import render_template, request, redirect, jsonify, url_for
 from pymongo import MongoClient
 import certifi
-from views import model_test, common, sign_in, upload_pokemon, sign_up, detail_page, main_page, category
+from views import model_test, common, sign_in, upload_pokemon, sign_up, detail_page, main_page, category, sort_pokemon
+
 import jwt
 
 ca = certifi.where()
@@ -26,6 +27,8 @@ app.register_blueprint(sign_up.bp)
 app.register_blueprint(detail_page.bp)
 app.register_blueprint(main_page.bp)
 app.register_blueprint(category.bp)
+app.register_blueprint(sort_pokemon.bp)
+
 
 
 @app.route('/')
