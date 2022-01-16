@@ -24,10 +24,18 @@
 {% include 'header.html' %}
 <div class="w_box_common">
     <div class="h4_common">
-        {{ container[0]['category'] }}
+        {{ category }}
     </div>
     <hr>
     {% set total = container|length %}
+    {% if total==0 %}
+    <div class="h4_common">
+        게시글이 없습니다!
+        <button class="back_to_main_page" onclick="window.location.href='/'"> 돌아가기 </button>
+    </div>
+
+    <div class="none_data"></div>
+    {% else %}
     {% set rowcnt = total//5 +1 %}
     {% for i in range(rowcnt) %}
     <div class="sort_row flex">
@@ -76,7 +84,8 @@
             <p>다음</p>
         </div>
     </div>
-</div>
+</button>
+{% endif %}
 {% include 'footer.html' %}
 </body>
 </html>
