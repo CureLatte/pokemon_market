@@ -210,6 +210,10 @@ body {
   width: 160px;
 }
 
+.prod_list .prod-list-hot-content li {
+  margin: 0 16px;
+}
+
 .prod_list > div {
   width: 1200px;
   margin: 0 auto;
