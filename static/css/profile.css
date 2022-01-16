@@ -93,12 +93,25 @@
 .top-gnb{
     border-bottom: solid 1px #ffae00;
 }
+.open-ball{
+    width: 30px;
+}
+.close-ball{
+    width: 30px;
+}
+.left-profile-box{
+    width: 500px;
+}
+.left-profile-box .profile-bot-img{
+    margin-top: 200px;
+    width: 1200px;
+}
 
 
 .left-profile-box img{
     width: 300px;
     height: 300px;
-   border-radius: 70%;
+   border-radius: 10%;
     margin-top: 60px;
 }
 
@@ -118,8 +131,8 @@
     grid-gap: 20px;
     overflow: hidden;
     grid-template-columns: repeat(3, 1fr);
-    background-image: url("../image/pokeball.png");
-    background-size: 700px;
+    background-image: url("../image/pokeball.jpg");
+    background-size: 3000px;
     background-position: center;
 
 }
@@ -157,6 +170,7 @@
 .bot-list {
     width: 1200px;
     margin: 0 auto;
+
 
 }
 .bot-list li{

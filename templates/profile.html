@@ -28,7 +28,11 @@
                 <li class="mt20">
                     <p>전화번호 : <span>{{container['phone_number']}}</span></p>
                 </li>
+                <li>
+                    <img class="profile-bot-img" src='/static/image/pika.jpg'>
+                </li>
             </ul>
+
         </div>
         <div class="r-box">
             {% set b = get_mon | length %}
@@ -37,34 +41,40 @@
                 <img src="/static/image/{{get_mon[i]}}"/>
             </div>
             {% endfor %}}
-            <div class="r-box-item">
-                <img src="/static/image/hi.jpeg"/>
-            </div>
-            <div class="r-box-item">
-                <img src="/static/image/hi.jpeg"/>
-            </div>
-            <div class="r-box-item">
-                <img src="/static/image/hi.jpeg"/>
-            </div>
-            <div class="r-box-item">
-                <img src="/static/image/hi.jpeg"/>
-            </div>
-            <div class="r-box-item">
-                <img src="/static/image/hi.jpeg"/>
-            </div>
-            <div class="r-box-item">
-                <img src="/static/image/hi.jpeg"/>
-            </div>
-            <div class="r-box-item">
-                <img src="/static/image/hi.jpeg"/>
-            </div>
+<!--            <div class="r-box-item">-->
+<!--                <img src="/static/image/hi.jpeg"/>-->
+<!--            </div>-->
+<!--            <div class="r-box-item">-->
+<!--                <img src="/static/image/hi.jpeg"/>-->
+<!--            </div>-->
+<!--            <div class="r-box-item">-->
+<!--                <img src="/static/image/hi.jpeg"/>-->
+<!--            </div>-->
+<!--            <div class="r-box-item">-->
+<!--                <img src="/static/image/hi.jpeg"/>-->
+<!--            </div>-->
+<!--            <div class="r-box-item">-->
+<!--                <img src="/static/image/hi.jpeg"/>-->
+<!--            </div>-->
+<!--            <div class="r-box-item">-->
+<!--                <img src="/static/image/hi.jpeg"/>-->
+<!--            </div>-->
+<!--            <div class="r-box-item">-->
+<!--                <img src="/static/image/hi.jpeg"/>-->
+<!--            </div>-->
         </div>
     </div>
     <div>
         <div class="top-gnb mt70">
             <div class="flex">
-                <a onclick="sale_pokemon()">거래중</a>
-                <a>구매</a>
+                <a onclick="sale_pokemon()">
+                    <img class="open-ball" src="/static/image/open_ball.png">
+                    <span>거래중</span>
+                </a>
+                <a>
+                    <img class="close-ball" src="/static/image/closs_ball.png">
+                    <span>구매</span>
+                </a>
             </div>
         </div>
         <ul class="mt50 bot-list">

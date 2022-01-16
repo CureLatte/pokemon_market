@@ -16,6 +16,8 @@ app = Flask(__name__)
 app.secret_key = 'sparta'
 
 
+
+
 @bp.route('/home', methods=['GET'])
 def open_profile():
     user = db.users.find_one({'user_id': 'qwer2'})
