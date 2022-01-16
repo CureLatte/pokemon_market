@@ -10,13 +10,11 @@ app = Flask(__name__)
 app.secret_key = 'sparta'
 
 
-# import
 def check_decode():
     token_receive = request.cookies.get('mytoken')
     if token_receive is not None:
         try:
             payload = jwt.decode(token_receive, app.secret_key, algorithms=['HS256'])
-
             return payload['user_id']
         except:
             return None
