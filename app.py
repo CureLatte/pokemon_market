@@ -34,7 +34,7 @@ app.register_blueprint(main_page.bp)
 def main():
     token_receive = request.cookies.get('mytoken')
     if token_receive is not None:
-        return render_template('palette.html')
+        return redirect(url_for('main_page.main_page'))
     else:
         return render_template('sign_in.html')
 
