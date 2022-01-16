@@ -1,12 +1,10 @@
 import hashlib, time
 from datetime import datetime
 
-from flask import Flask, render_template, jsonify, request, Blueprint,redirect,url_for
+from flask import Flask, render_template, jsonify, request, Blueprint
 from pymongo import MongoClient
 import certifi
 from views.common import check_decode
-# category 관련 import
-from static.model.poketmon_class import poket_all_class
 
 ca = certifi.where()
 
@@ -21,17 +19,20 @@ db = client.dbpokemon
 @bp.route('/')
 def main_page():
     login_user_id = check_decode()
-    if login_user_id is None:
-        return redirect(url_for('main'))
     temp_poket = db.users.find_one({'user_id': login_user_id}, {'_id': False, 'interest_poket': 1})
+    print(temp_poket)
+
     market_list = list(db.market.find({}, {'_id': False}))
+
     market_list.sort(key=lambda x: (x['date']), reverse=True)
+
     now = datetime.now()
+
     for market in market_list:
         temp_date = datetime.strptime(market['date'], '%Y-%m-%d-%H-%M-%S')
         temp_time = (now - temp_date)
         market['date'] = get_time(temp_time)
-
+        print(market['date'])
 
     # category 관련 작업 ##################
     BASE_CODE = 44032
@@ -51,6 +52,7 @@ def main_page():
     #####################################
 
     return render_template('main_page.html', market_list=market_list, login_interest_poket=temp_poket['interest_poket'], container=dict_by_letter, koreans=category_korean)
+
 
 
 def get_time(tm):
