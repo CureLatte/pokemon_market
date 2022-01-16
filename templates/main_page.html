@@ -6,10 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상세페이지</title>
-    <link rel="stylesheet" href="../static/css/no.css">
-    <link rel="stylesheet" href="../static/css/common.css">
-    <link rel="stylesheet" href="../static/css/footer.css">
-    <link rel="stylesheet" href="../static/css/main_page.css">
+    <link rel="stylesheet" href="/static/css/no.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/main_page.css">
+    <link rel="stylesheet" href="/static/css/category.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
@@ -17,9 +19,11 @@
         crossorigin="anonymous"></script>
     <script src="/static/javascript/detail_page.js"></script>
     <script src="/static/javascript/main_page.js"></script>
+    <script src="/static/javascript/category.js"></script>
 </head>
 
 <body>
+    {% include 'header.html' %}
     <header>
     </header>
     <div class="main_banner">
@@ -28,67 +32,68 @@
             <h4 class="banner_h4">포켓몬 트레이드 No.1 포켓스토어</h4>
             <form action="#" class="form_common mt40">
                 <input id="search" type="text" maxlength="10">
-                <img src="/static/image/main_images/Pokemon-GO_96px.png">
+                <img src="/static/image/main_images/Pokemon-GO_96px.png" onclick="move_search_result()">
                 <div id="auto-search"></div>
             </form>
         </div>
         <p class="main_banner_ball"><img src="/static/image/main_images/Pokeball_96px.png" alt="1"></p>
         <p class="main_banner_ball"><img src="/static/image/main_images/Ash-Hat_96px.png" alt="2"></p>
-        <p class="main_banner_modal"><img src="/static/image/main_images/Pokeball_96px.png" onclick="test()"></p>
+        <p class="main_banner_modal"><img src="/static/image/main_images/Pokeball_96px.png" style="transform: scaleX(-1);"  id="category_button" onclick="test()"></p>
     </div>
+    {% include 'category.html' %}
     <ul class="category_icon flex mt50">
         <li>
-            <a href="#">
+            <a href="/sort_pokemon/피카츄/1">
                 <img src="/static/image/main_images/Pikachu_96px.png" alt="피카츄">
                 <span>피카츄</span>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="/sort_pokemon/이상해씨/1">
                 <img src="/static/image/main_images/Bulbasaur_96px.png" alt="이상해씨">
                 <span>이상해씨</span>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="/sort_pokemon/꼬부기/1">
                 <img src="/static/image/main_images/Sqirtle_96px.png" alt="꼬부기">
                 <span>꼬부기</span>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="/sort_pokemon/파이리/1">
                 <img src="/static/image/main_images/Charmander_96px.png" alt="파이리">
                 <span>파이리</span>
             </a>
         </li>
 
         <li>
-            <a href="#">
+            <a href="/sort_pokemon/이브이/1">
                 <img src="/static/image/main_images/Eevee_96px.png" alt="1"
                     style="transform: translateX(2px);transform: translateY(-2px); width: 64px; height: 67px;">
                 <span>이브이</span>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="/sort_pokemon/잠만보/1">
                 <img src="/static/image/main_images/Snorlax_96px.png" alt="잠만보" style="transform: translateY(5px);">
                 <span>잠만보</span>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="/sort_pokemon/갸라도스/1">
                 <img src="/static/image/main_images/Gyarados_96px.png" alt="갸라도스">
                 <span>갸라도스</span>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="/sort_pokemon/리자몽/1">
                 <img src="/static/image/main_images/Charizard_96px.png" alt="리자몽" style="width: 45px;">
                 <span>리자몽</span>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="/sort_pokemon/거북왕/1">
                 <img src="/static/image/main_images/Blastoise_96px.png" alt="거북왕">
                 <span>거북왕</span>
             </a>
@@ -102,7 +107,8 @@
                 {% for i in range(market_list | length) if j < 4 %}
                 {% if market_list[i]['category'] == login_interest_poket %}
                 <li>
-                    <a href="#">
+                    {% set detail_url = '/detail_page/' +  market_list[i]['maket_id'] %}
+                    <a href="{{ detail_url }}">
                         <div>
                             <img src="/static/image/main_images/{{ market_list[i]['photo'] }}" />
                         </div>
@@ -123,7 +129,8 @@
                 <div class="flex content-wrapper mt30">
                 {% for j in range(i, i+5) if j < market_list | length %}
                 <li>
-                    <a href="#">
+                    {% set detail_url = '/detail_page/' +  market_list[i]['maket_id'] %}
+                    <a href="{{ detail_url }}">
                         <div>
                             <img src="/static/image/main_images/{{ market_list[i]['photo'] }}" />
                         </div>
