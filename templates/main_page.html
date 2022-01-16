@@ -125,6 +125,7 @@
         <div class="prod-list-content">
             <h4 class="h4_common main_common h4-content">최신순 컨텐츠!</h4>
             {% set market_len = market_list | length %}
+
             {% for i in range(0, market_len, 5) %}
                 <div class="flex content-wrapper mt30">
                 {% for j in range(i, i+5) if j < market_list | length %}
@@ -132,7 +133,9 @@
                     {% set detail_url = '/detail_page/' +  market_list[i]['maket_id'] %}
                     <a href="{{ detail_url }}">
                         <div>
-                            <img src="/static/image/main_images/{{ market_list[i]['photo'] }}" />
+                            {% set photo_url = '/static/image/content/' +  market_list[j]['photo'] %}
+                            {{ photo_url }}
+                            <img src="{{ photo_url }}" />
                         </div>
 
                         <span>{{ market_list[j]['header'] }}</span>

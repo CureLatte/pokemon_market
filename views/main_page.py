@@ -31,7 +31,6 @@ def main_page():
         temp_time = (now - temp_date)
         market['date'] = get_time(temp_time)
 
-
     # category 관련 작업 ##################
     BASE_CODE = 44032
     CHOSUNG = 588
