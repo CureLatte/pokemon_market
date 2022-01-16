@@ -20,7 +20,7 @@ db = client.dbpokemon
 
 SECRET_KEY = 'sparta'
 
-# model = tf.keras.models.load_model('./static/model/model_SGD.h5')
+model = tf.keras.models.load_model('./static/model/model_SGD.h5')
 
 bp = Blueprint("machine", __name__, url_prefix='/machine')
 
@@ -74,12 +74,13 @@ def predict_poketmon():
     pred = model.predict(test_generator)
     max_value = max(pred[-1])
     print(max_value)
-    if max_value <= 0.8:
-        return jsonify({'result': '등록된 포켓몬이 아닙니다!'})
+    # if max_value <= 0.8:
+    #     return jsonify({'result': '등록된 포켓몬이 아닙니다!'})
     for index, k in enumerate(pred[-1]):
         if k == max_value:
             result = poket_all_class[index]
             break
+
     return jsonify({'result': result})
 
 

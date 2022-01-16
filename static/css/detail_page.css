@@ -1,0 +1,287 @@
+html {
+  scroll-behavior: smooth;
+}
+
+ul {
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+h5 {
+  margin: 0;
+}
+h4 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+.bbn {
+  border-bottom: none !important;
+}
+.detail_page_wrap {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 120px 0;
+  color: rgb(51, 61, 75);
+}
+.detail_page_obj {
+  width: 480px;
+}
+
+.detail_page_obj img {
+  display: block;
+  width: 480px;
+  height: 380px;
+  border-radius: 18px;
+}
+
+.detail_page_info {
+  width: 550px;
+  height: 135px;
+}
+
+.h5_detail_page {
+  font-size: 20px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.h4_detail_page {
+  font-size: 35px;
+  font-weight: 600;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.detail_page_history {
+  justify-content: left !important;
+  color: rgb(204, 204, 204);
+}
+
+.detail_page_history span {
+  display: inline-block;
+  margin-left: 8px;
+}
+.detail_page_history i {
+  font-weight: 400;
+}
+.detail_page_history i:first-child {
+  margin-right: 15px;
+}
+.detail_page_history i:last-child {
+  margin-left: 15px;
+}
+
+.detail_page_btn button {
+  width: 173px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 0;
+}
+.detail_page_btn button:nth-child(1) {
+  background-color: rgb(165, 165, 165);
+}
+.detail_page_btn button:nth-child(2) {
+  background-color: #3182f6;
+}
+.detail_page_btn button:nth-child(3) {
+  background-color: #ffae00;
+}
+
+.detail_page_btn button i strong {
+  display: inline-block;
+  margin-left: 7px;
+}
+
+.detail_page_tag {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 50px;
+}
+.detail_page_tag > div {
+  width: 430px;
+  justify-content: inherit !important;
+}
+.detail_page_tag li:first-child {
+  margin-left: 0;
+}
+.detail_page_tag li {
+  padding: 10px 15px;
+  margin-left: 10px;
+  background-color: rgb(157, 157, 157);
+  color: #fff;
+  border-radius: 8px;
+}
+
+/* ################### */
+.detail_page_seller {
+  width: 140px;
+  height: 40px;
+  line-height: 40px;
+  text-align: left;
+  position: relative;
+}
+
+.detail_page_seller:before {
+  content: "";
+  position: absolute;
+  width: 45px;
+  height: 3px;
+  background-color: rgb(51, 61, 75);
+  bottom: -25px;
+}
+
+.detail_page_seller a {
+  display: block;
+  color: rgb(51, 61, 75);
+}
+.detail_page_seller a :hover,
+.detail_page_seller a :focus {
+  text-decoration: underline;
+}
+
+.detail_page_seller img {
+  display: inline;
+  margin-right: 7px;
+  width: 30px;
+  height: 30px;
+  transform: translateY(8px);
+  border-radius: 50%;
+}
+.detail_page_seller span {
+  line-height: 40px;
+  height: 40px;
+}
+
+.detail_page_text {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 70px;
+}
+.detail_page_text p {
+  width: 1000px;
+  line-height: 1.6;
+  font-size: 17px;
+  word-break: keep-all;
+}
+
+.detail_page_commentes {
+  background-color: rgb(249, 249, 249);
+  padding: 40px 35px;
+  margin-top: 25px;
+}
+.detail_page_commentes h5 {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 40px;
+}
+.detail_page_commentes a {
+  display: block;
+  height: 40px;
+  font-size: 20px;
+  color: rgb(51, 61, 75);
+}
+.detail_page_commentes img {
+  display: inline;
+  margin-right: 7px;
+  width: 30px;
+  height: 30px;
+  transform: translateY(8px);
+  border-radius: 50%;
+}
+
+.detail_page_commentes p {
+  width: 900px;
+  font-size: 17px;
+  line-height: 1.6;
+  word-break: keep-all;
+  position: relative;
+}
+.detail_page_commentes span {
+  display: block;
+  text-align: right;
+  font-weight: 400;
+  color: rgb(152, 152, 152);
+}
+
+.detail_page_comment form {
+  position: relative;
+  height: 230px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 70px;
+}
+.sub_title {
+  font-size: 15px;
+  font-weight: 400;
+}
+.detail_page_comment form textarea {
+  border-radius: 18px;
+  border: none;
+  background-color: rgb(242, 242, 242);
+  resize: none;
+  width: 1200px;
+  box-sizing: border-box;
+  height: 120px;
+  padding: 30px 37px;
+  font-size: 18px;
+}
+
+.detail_page_comment form textarea:focus {
+  outline: 2px solid #ffae00;
+}
+
+.btn_wrap {
+  display: block;
+  text-align: right;
+}
+
+.detail_page_comment form button {
+  background-color: rgb(232, 159, 2);
+}
+
+.detail_page_comment form button:focus,
+.detail_page_comment form button:hover {
+  background-color: #ffae00;
+}
+.detail_page_recommend {
+  overflow: hidden;
+}
+.detail_page_recommend li {
+  box-sizing: border-box;
+}
+.detail_page_recommend li a {
+  display: block;
+  color: rgb(51, 61, 75);
+}
+
+.detail_page_recommend li div {
+  border-radius: 8px;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.detail_page_recommend li div img {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+}
+
+.detail_page_recommend li h5 {
+  font-size: 15px;
+  font-weight: 500;
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.detail_page_recommend li p {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 8px;
+}
