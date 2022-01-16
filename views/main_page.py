@@ -47,6 +47,7 @@ def main_page():
         else:
             list_by_letter = dict_by_letter[category_korean[first_letter_index]]
             list_by_letter.append(poketmon_name)
+            
     #####################################
 
     return render_template('main_page.html', market_list=market_list, login_interest_poket=temp_poket['interest_poket'], container=dict_by_letter, koreans=category_korean)
