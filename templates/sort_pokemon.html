@@ -24,7 +24,7 @@
 {% include 'header.html' %}
 <div class="w_box_common">
     <div class="h4_common">
-        라이츄
+        {{ container[0]['category'] }}
     </div>
     <hr>
     {% set total = container|length %}
@@ -33,7 +33,7 @@
     <div class="sort_row flex">
         {% for j in range(5) %}
         {% if i*5+j >= total %}
-        <div class="sort_content_card" style="background-color: #dddddd"></div>
+        <div class="sort_content_card" style="background-color: white; border:none"></div>
         {% else %}
         {% set detail_page_url = '/detail_page/' + container[i*5+j]['maket_id'] %}
         <div class="sort_content_card" onclick="window.location.href='{{ detail_page_url }}'">
@@ -41,23 +41,20 @@
                 {% set base_path = '../static/image/content/' + container[i*5+j]['photo'] %}
                 <img src="{{ base_path }}">
             </div>
-            <div class="sort_content_card_desc flex">
-                <div class="sort_content_card_desc_top ">
+            <div class="sort_content_card_desc">
+                <div class="sort_content_card_desc_top mt20">
                     <p>{{ container[i*5+j]['header'] }}</p>
                 </div>
-                <div class="sort_content_card_desc_middle flex">
+                <div class="sort_content_card_desc_bottom flex mt30">
                     <p>{{ container[i*5+j]['price'] }}</p>
-                    <p>포인트</p>
-                </div>
-                <div class="sort_content_card_desc_bottom flex">
                     {% set date_list = container[i*5+j]['date'].split('-')[2]%}
                     {% set delta_time = curr_day - date_list|int %}
                     {% if delta_time == 0 %}
                     {% set date_list = container[i*5+j]['date'].split('-')[3]%}
                     {% set delta_hour = curr_hour - date_list|int %}
-                    <p>{{ delta_hour }} 시간 전</p>
+                    <p class="time_data">{{ delta_hour }} 시간 전</p>
                     {% else %}
-                    <p>{{ delta_time }} 일전</p>
+                    <p class="time_data">{{ delta_time }} 일전</p>
                     {% endif %}
                 </div>
             </div>

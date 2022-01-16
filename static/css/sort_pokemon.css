@@ -1,73 +1,69 @@
 .w_box_common{
     width : 1200px;
     height : 900px;
-    background-color: #dddddd;
+    background-color: white;
     margin: 0 auto;
+    padding: 0;
 }
 .sort_row{
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    width : 100%;
+    height : 300px;
+    margin-top: 40px;
 }
 .sort_content_card {
-    border-radius: 10px;
+    border-radius: 8px;
+    border: 1px solid #dddddd;
     width : 200px;
-    height :300px;
-    background-color: #4e5968;
-    overflow: hidden;
+    height :250px;
+    background-color: white;
     cursor: pointer;
-    z-index: 100;
+    padding : 20px 30px 30px 20px;
+    margin: 0px 10px 0px 10px;
 }
-.sort_content_card:hover{
-    transform: scale(1.05);
-    background-color: #dddddd;
-}
-
-
 .sort_content_card_image{
-    width : 100%;
-    height :200px;
-    background-color: #ffae00;
+    width : 160px;
+    height :170px;
+    background-color: white;
     object-position: center;
     object-fit: cover;
+    margin: auto;
 }
 
 .sort_content_card_image img{
     width :100%;
     height : 100%;
+    display: inline-block;
+    content: "";
 }
 .sort_content_card_desc{
     flex-direction: column;
     justify-content: start;
     width : 100%;
-    height : 100px;
     background-color: white;
 }
 
 .sort_content_card_desc_top{
-    height : 35px;
-    text-align: center;
-    font-size: 100%;
-    padding-top: 15px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
 }
 
-.sort_content_card_desc_middle{
-    height : 30px;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-left: 10px;
-    border-bottom: 1px solid #4e5968;
-
-}
 #price{
     font-weight: bold;
 }
 
 .sort_content_card_desc_bottom{
     flex-direction: row;
-    justify-content: end;
-    height : 20px;
-    margin-right: 10px;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 20px;
+}
+.time_data{
+    margin-top: 7px;
+    font-size: 13px;
+    color : #969696;
 }
 
 .sort_page_row{
