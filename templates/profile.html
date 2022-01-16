@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
     <link rel="stylesheet" href="../static/css/profile.css">
     <link rel="stylesheet" href="../static/css/no.css">
     <link rel="stylesheet" href="../static/css/common.css">
@@ -12,54 +14,139 @@
 
 </head>
 <body>
-<div id="main">
-    <div id="profile-box">
-        <div id="my-profile">
-            <div id="profile-img">
-                <img src="../static/image/hi.jpeg" alt="profile-img"/>
-            </div>
-            <p>이름</p>
-            <p>나이</p>
+{% include 'header.html' %}
+    <div class="flex top-content">
+        <div class="left-profile-box">
+            <img src="/static/image/hi.jpeg"/>
+            <ul class="mt70">
+                <li>
+                    <p>트레이너 : <span>{{container['avatar']}}</span></p>
+                </li>
+                <li class="mt20">
+                    <p>성별 : <span>{{container['gender']}}</span></p>
+                </li>
+                <li class="mt20">
+                    <p>전화번호 : <span>{{container['phone_number']}}</span></p>
+                </li>
+            </ul>
         </div>
-        <div id="my-pokemone">
-            <div class="pokemone">
-                <img src="../static/image/hi.jpeg"/>
+        <div class="r-box">
+            {% set b = get_mon | length %}
+            {% for i in range(b) %}
+            <div class="r-box-item">
+                <img src="/static/image/{{get_mon[i]}}"/>
             </div>
-            <div class="pokemone">
-                <img src="../static/image/hi.jpeg"/>
+            {% endfor %}}
+            <div class="r-box-item">
+                <img src="/static/image/hi.jpeg"/>
             </div>
-            <div class="pokemone">
-                <img src="../static/image/hi.jpeg"/>
+            <div class="r-box-item">
+                <img src="/static/image/hi.jpeg"/>
             </div>
-            <div class="pokemone">
-                <img src="../static/image/hi.jpeg"/>
+            <div class="r-box-item">
+                <img src="/static/image/hi.jpeg"/>
+            </div>
+            <div class="r-box-item">
+                <img src="/static/image/hi.jpeg"/>
+            </div>
+            <div class="r-box-item">
+                <img src="/static/image/hi.jpeg"/>
+            </div>
+            <div class="r-box-item">
+                <img src="/static/image/hi.jpeg"/>
+            </div>
+            <div class="r-box-item">
+                <img src="/static/image/hi.jpeg"/>
             </div>
         </div>
     </div>
-    <div id="trans-box">
-        <div>
-
+    <div>
+        <div class="top-gnb mt70">
+            <div class="flex">
+                <a onclick="sale_pokemon()">거래중</a>
+                <a>구매</a>
+            </div>
         </div>
-        <table border="1" width="1200" height="300" align="center">
-            <thead>
-            <tr>
-                <th>번호</th><th></th><th>제목</th><th>내용</th><th>날짜</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>1</td><td><div class="pokemone"><img src="../static/image/hi.jpeg"/></div><td>제목</td><td>내용이다아아아아아아아아</td><td>날짜</td>
-            </tr>
-            <tr><td>2</td><td><div class="pokemone"><img src="../static/image/hi.jpeg"/></div></td></tr>
-            <tr><td>3</td><td><div class="pokemone"><img src="../static/image/hi.jpeg"/></div></td></tr>
-            <tr><td>4</td><td><div class="pokemone"><img src="../static/image/hi.jpeg"/></div></td></tr>
-            <tr><td>5</td><td><div class="pokemone"><img src="../static/image/hi.jpeg"/></div></td></tr>
-            <tr><td>6</td><td><div class="pokemone"><img src="../static/image/hi.jpeg"/></div></td></tr>
-            <tr><td>8</td><td><div class="pokemone"><img src="../static/image/hi.jpeg"/></div></td></tr>
-
-            </tbody>
-        </table>
+        <ul class="mt50 bot-list">
+            {% set a = mon_title | length %}
+            {% for i in range(a) %}
+            <li>
+                <div>
+                    <img src="/static/image/content/{{mon_photo[i]}}"/>
+                </div>
+                <h5>
+                    {{mon_title[i]}}
+                </h5>
+                <span>{{mon_date[i]}}</span>
+                {% endfor %}
+            </li>
+<!--             <li>-->
+<!--                <div>-->
+<!--                    <img src="/static/image/hi.jpeg"/>-->
+<!--                </div>-->
+<!--                <h5>-->
+<!--                    titletitletitlet-->
+<!--                </h5>-->
+<!--                <span>ddddd</span>-->
+<!--            </li>-->
+<!--             <li>-->
+<!--                <div>-->
+<!--                    <img src="/static/image/hi.jpeg"/>-->
+<!--                </div>-->
+<!--                <h5>-->
+<!--                    titletitletitlet-->
+<!--                </h5>-->
+<!--                <span>ddddd</span>-->
+<!--            </li>-->
+<!--             <li>-->
+<!--                <div>-->
+<!--                    <img src="/static/image/hi.jpeg"/>-->
+<!--                </div>-->
+<!--                <h5>-->
+<!--                    titletitletitlet-->
+<!--                </h5>-->
+<!--                <span>ddddd</span>-->
+<!--            </li>-->
+<!--             <li>-->
+<!--                <div>-->
+<!--                    <img src="/static/image/hi.jpeg"/>-->
+<!--                </div>-->
+<!--                <h5>-->
+<!--                    titletitletitlet-->
+<!--                </h5>-->
+<!--                <span>ddddd</span>-->
+<!--            </li>-->
+        </ul>
+        <ul class="mt50 bot-list-2">
+            <li>
+                <div>
+                    <img src="/static/image/hi.jpeg"/>
+                </div>
+                <h5>
+                    titletit
+                </h5>
+                <span>ddddd</span>
+            </li>
+             <li>
+                <div>
+                    <img src="/static/image/hi.jpeg"/>
+                </div>
+                <h5>
+                    titlet
+                </h5>
+                <span>ddddd</span>
+            </li>
+             <li>
+                <div>
+                    <img src="/static/image/hi.jpeg"/>
+                </div>
+                <h5>
+                    titletitlet
+                </h5>
+                <span>ddddd</span>
+            </li>
+        </ul>
     </div>
-</div>
+{% include 'footer.html' %}
 </body>
 </html>
