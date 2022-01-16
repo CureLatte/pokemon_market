@@ -62,7 +62,7 @@ function confirming(){
             $('.pocket_book_image_predict_tag').css('display','block')
             if (response['result'] === '등록된 포켓몬이 아닙니다!' )
             {
-                previewImage.src = '../static/image/' + 'question' + '.jpg'
+                previewImage.src = '/static/image/' + 'question' + '.jpg'
                 $('#pokemon_name').text('판별 불가')
             }
             else if(response['result'] === '확장자를 확인해주세요'){
@@ -70,7 +70,7 @@ function confirming(){
             }
             else{
                 global_result = response['result']
-                previewImage.src = '../static/image/default_pokemons_img/' + response['result'] + '.png'
+                previewImage.src = '/static/image/default_pokemons_img/' + response['result'] + '.png'
                 $('#pokemon_name').text('#'+response['result'])
             }
         }

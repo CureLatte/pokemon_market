@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Pokemon Store</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="/static/css/footer.css">
     <link rel="stylesheet" href="/static/css/sort_pokemon.css">
     <script src="/static/javascript/sort_pokemon.js"></script>
+    <script src="/static/javascript/header.js"></script>
 </head>
 <body>
 {% include 'header.html' %}
@@ -46,7 +47,7 @@
         {% set detail_page_url = '/detail_page/' + container[i*5+j]['maket_id'] %}
         <div class="sort_content_card" onclick="window.location.href='{{ detail_page_url }}'">
             <div class="sort_content_card_image">
-                {% set base_path = '../static/image/content/' + container[i*5+j]['photo'] %}
+                {% set base_path = '/static/image/content/' + container[i*5+j]['photo'] %}
                 <img src="{{ base_path }}">
             </div>
             <div class="sort_content_card_desc">
