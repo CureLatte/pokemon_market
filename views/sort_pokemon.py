@@ -7,6 +7,7 @@ from flask import Flask
 from pymongo import MongoClient
 import certifi
 from datetime import datetime
+from views.common import check_decode
 
 ca = certifi.where()
 
@@ -19,21 +20,10 @@ app = Flask(__name__)
 app.secret_key = 'sparta'
 
 
-def check_decode():
-    token_receive = request.cookies.get('mytoken')
-    if token_receive is not None:
-        try:
-            payload = jwt.decode(token_receive, app.secret_key, algorithms=['HS256'])
-            return payload['user_id']
-        except:
-            return None
-    else:
-        return None
-
-
 @bp.route('/<category>/<page_number>', methods=['GET'])
 def token_check(category, page_number):
     user_id = check_decode()
+    print(user_id)
     if user_id is not None:
         page_all = 5*10
         container = list(db.market.find({'category': category}))
