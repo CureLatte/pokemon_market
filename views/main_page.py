@@ -5,7 +5,6 @@ from flask import Flask, render_template, jsonify, request, Blueprint,redirect,u
 from pymongo import MongoClient
 import certifi
 from views.common import check_decode
-# category 관련 import
 from static.model.poketmon_class import poket_all_class
 
 ca = certifi.where()
