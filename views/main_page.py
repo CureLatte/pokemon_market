@@ -34,7 +34,25 @@ def main_page():
         market['date'] = get_time(temp_time)
         print(market['date'])
 
-    return render_template('main_page.html', market_list=market_list, login_interest_poket=temp_poket['interest_poket'])
+    # category 관련 작업 ##################
+    BASE_CODE = 44032
+    CHOSUNG = 588
+    category_sort = sorted(poket_all_class.items(), key=lambda x: x[1])
+    category_korean = ['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ']
+    dict_by_letter = {}
+    for index, poketmon_name in category_sort:
+        string_list = list(poketmon_name)
+        first_letter_index = int((ord(string_list[0]) - BASE_CODE) / CHOSUNG)
+        if category_korean[first_letter_index] not in dict_by_letter:
+            dict_by_letter[category_korean[first_letter_index]] = [poketmon_name]
+        else:
+            list_by_letter = dict_by_letter[category_korean[first_letter_index]]
+            list_by_letter.append(poketmon_name)
+            
+    #####################################
+
+    return render_template('main_page.html', market_list=market_list, login_interest_poket=temp_poket['interest_poket'], container=dict_by_letter, koreans=category_korean)
+
 
 
 def get_time(tm):
