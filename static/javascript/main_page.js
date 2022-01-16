@@ -55,5 +55,17 @@ function auto_search_close() {
 }
 
 function test(){
-    alert('test')
+    if($('#category_box').css('display')==='none'){
+        $('#category_button').attr('src','/static/image/main_images/Open-Pokeball_96px.png');
+        $('#category_box').show();
+    }
+    else{
+        $('#category_button').attr('src','/static/image/main_images/Pokeball_96px.png');
+        $('#category_box').hide();
+    }
+}
+
+function move_search_result(){
+    let result = $('#search').val();
+    window.location.href='/sort_pokemon/' + result + '/1'
 }

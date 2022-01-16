@@ -1,16 +1,23 @@
+#category_box{
+    display: none;
 
+}
 .category_box{
     width : 1200px;
     margin: 0 auto;
-    border: 1px solid darkgray;
+    border: 1px solid #ddd;
     background-color: white;
     padding: 30px 30px 0px 30px;
     border-radius: 20px;
 }
 
 .category_header{
-    font-size: 30px;
+    font-size: 35px;
     width : 200px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    line-height: 1;
+    color: #ffae00;
 }
 
 .category_box_first_words_row{
@@ -25,7 +32,7 @@
 .first_words_box{
     width : 80px;
     height : 80px;
-    background:#C4C4C4 ;
+    background:white;
     font-size: 40px;
     text-align: center;
     cursor: pointer;
@@ -33,10 +40,16 @@
 }
 .first_words_box p{
     margin-top : 15px;
+    color : #b6b6b6;
+    font-weight: 600;
 }
 .first_words_box:hover{
     transform: scale(1.1);
     background-color: #ffae00;
+}
+
+.first_words_box p:hover{
+    color: white;
 }
 .category_box_pokemons_row{
     width :100%;
