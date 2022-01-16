@@ -1,9 +1,10 @@
-<div class="category_box_wrap mt40" id='category_box'>
-    <div class="category_box">
+<div class="bg_gray">
+    <div class="category_box_wrap">
+    <div class="category_box" >
         <div class="category_header">
             카테고리
         </div>
-        <hr style="border: 1px solid #ddd">
+        <hr>
         <div class="category_box_first_words">
             <div class="category_box_first_words_row">
                 {% for letter in koreans[0:10] %}
@@ -19,34 +20,34 @@
                 </div>
                 {% endfor %}
             </div>
-            <div class="category_box_pokemons">
-                <hr style="border: 1px solid #ddd">
-                {% for letter in koreans: %}
-                {% set row = container[letter] %}
-                {% set length = row|length %}
-                {% if length <= 0 %}
+        <hr>
+        <div class="category_box_pokemons">
+            {% for letter in koreans: %}
+            {% set row = container[letter] %}
+            {% set length = row|length %}
+            {% if length <= 0 %}
                 <div></div>
+            {% else %}
+            {% set rowcnt = length // 5 %}
+            {% for i in range(rowcnt+1) %}
+            <div class="category_box_pokemons_row mt30" id="{{ letter }}" >
+                {% for j in range(0,5) %}
+                {% if (i)*5+j >= length %}
+                <div class="category_pokemons_non_box"></div>
                 {% else %}
-                {% set rowcnt = length // 5 %}
-                {% for i in range(rowcnt+1) %}
-                <div class="category_box_pokemons_row mt30" id="{{ letter }}">
-                    {% for j in range(0,5) %}
-                    {% if (i)*5+j >= length %}
-                    <div class="category_pokemons_non_box"></div>
-                    {% else %}
-                    <div class="category_pokemons_box" onclick="move_pokemon_page('{{row[(i)*5+j]}}')">
-                        {% set base_path = '../static/image/default_pokemons_img/'%}
-                        {% set filepath = base_path + row[(i)*5+j] + '.png'%}
-                        <img src="{{ filepath }}">
-                        <p>{{ row[(i)*5+j] }}</p>
-                    </div>
-                    {% endif %}
-                    {% endfor %}
+                <div class="category_pokemons_box" onclick="move_pokemon_page('{{letter}}')">
+                    {% set base_path = '../static/image/default_pokemons_img/'%}
+                    {% set filepath = base_path + row[(i)*5+j] + '.png'%}
+                    <img src="{{ filepath }}">
+                    <p>{{  row[(i)*5+j] }}</p>
                 </div>
-                {% endfor %}
                 {% endif %}
                 {% endfor %}
             </div>
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
         </div>
+    </div>
     </div>
 </div>
