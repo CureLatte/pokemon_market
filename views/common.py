@@ -10,12 +10,25 @@ app = Flask(__name__)
 app.secret_key = 'sparta'
 
 
+def check_decode():
+    token_receive = request.cookies.get('mytoken')
+    if token_receive is not None:
+        try:
+            payload = jwt.decode(token_receive, app.secret_key, algorithms=['HS256'])
+            return payload['user_id']
+        except:
+            return None
+    else:
+        return None
+
+
 @bp.route('/token_check', methods=['GET'])
 def token_check():
     token_receive = request.cookies.get('mytoken')
     try:
         if token_receive is not None:
             payload = jwt.decode(token_receive, app.secret_key, algorithms=['HS256'])
+            # print(payload['user_id'])
             return jsonify({'user_id': payload['user_id']})
         else:
             return jsonify({'user_id': 'None'})
