@@ -9,6 +9,7 @@
   border-top: 1px solid lightgray;
   background-color: gray;
 }
+
 #footer #up-footer{
   margin: 2% 6%;
   display: flex;
@@ -18,10 +19,12 @@
   color: white;
 
 }
+
 #footer #up-footer img{
   width: 120px;
   filter: opacity(0.5) drop-shadow(0 0 white);
 }
+
 #footer #down-footer{
   margin: 1% 6%;
   display: flex;
@@ -30,7 +33,6 @@
   /*color: rgb(51, 61, 75);*/
   border-top: 1px solid lightgray;
   color: white;
-
 }
 
 #footer #down-footer h{

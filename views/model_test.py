@@ -20,14 +20,13 @@ db = client.dbpokemon
 
 SECRET_KEY = 'sparta'
 
-model = tf.keras.models.load_model('./static/model/model_SGD.h5')
+# model = tf.keras.models.load_model('./static/model/model_SGD.h5')
 
 bp = Blueprint("machine", __name__, url_prefix='/machine')
 
 
 @bp.route('/load', methods=['POST'])
 def save_picture_to_time():
-    print('server on')
     root_path = os.path.abspath(__file__)
     # Path 객체로 변환
     p = PureWindowsPath(root_path)
