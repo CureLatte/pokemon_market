@@ -16,9 +16,11 @@
     background-color: #4e5968;
     overflow: hidden;
     cursor: pointer;
+    z-index: 100;
 }
 .sort_content_card:hover{
     transform: scale(1.05);
+    background-color: #dddddd;
 }
 
 
@@ -75,6 +77,7 @@
     width : 500px;
     height : 50px;
     margin: 50px auto;
+    display : none;
 }
 
 .sort_page_button{

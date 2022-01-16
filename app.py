@@ -15,7 +15,6 @@ db = client.dbpokemon
 app.register_blueprint(model_test.bp)
 app.register_blueprint(common.bp)
 app.register_blueprint(sign_in.bp)
-
 app.register_blueprint(sort_pokemon.bp)
 
 

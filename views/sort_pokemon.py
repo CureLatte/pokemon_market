@@ -20,7 +20,7 @@ app = Flask(__name__)
 app.secret_key = 'sparta'
 
 
-@bp.route('/<category>/<page_number>', methods=['GET'])
+@bp.route('/<category>/<page_number>')
 def token_check(category, page_number):
     user_id = check_decode()
     print(user_id)
@@ -29,7 +29,6 @@ def token_check(category, page_number):
         container = list(db.market.find({'category': category}))
         container.sort(key=lambda x: x['date'], reverse=True)
         time_all = datetime.now()
-
         return render_template('sort_pokemon.html', container=container, curr_day=time_all.day, curr_hour=time_all.hour)
     else:
         return redirect(url_for('main'))
