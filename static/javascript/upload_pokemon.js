@@ -19,9 +19,8 @@ $(document).ready(function (){
 
 const inputImage = document.getElementById("input_file")
     inputImage.addEventListener("change", e => {
-
         $('#predict_writing_image').css('display','none')
-        $('.pocket_book_image_predict_tag').css('display','none')
+        $('#pokemon_name').text("#")
         global_result=''
         readImage(e.target)
 })
