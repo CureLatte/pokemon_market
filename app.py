@@ -1,10 +1,8 @@
 from flask import Flask
 from flask import render_template, request, redirect, jsonify, url_for
 from pymongo import MongoClient
-
-from views import upload_pokemon
 import certifi
-from views import model_test, common, sign_in, upload_pokemon,sign_up, detail_page, main_page
+from views import model_test, common, sign_in, upload_pokemon, sign_up, detail_page, main_page
 
 import jwt
 
@@ -27,7 +25,6 @@ app.register_blueprint(upload_pokemon.bp)
 app.register_blueprint(sign_up.bp)
 app.register_blueprint(detail_page.bp)
 app.register_blueprint(main_page.bp)
-
 
 
 @app.route('/')
