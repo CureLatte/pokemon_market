@@ -8,5 +8,5 @@ function load_pokemon_by_letter(letter){
 }
 
 function move_pokemon_page(letter){
-    window.location.href='/sort_pokemon/' + letter +'/1'
+    window.location.href='#'
 }
