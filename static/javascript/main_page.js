@@ -57,7 +57,10 @@ function auto_search_close() {
 
 function move_search_result(){
     let result = $('#search').val();
-    window.location.href='/sort_pokemon/' + result + '/1'
+    if(result !== ''){
+        window.location.href='/sort_pokemon/' + result + '/1'
+    }
+
 }
 
 $(function(){
