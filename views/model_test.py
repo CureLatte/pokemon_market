@@ -19,9 +19,7 @@ client = MongoClient("mongodb+srv://test:sparta@cluster0.cpg4z.mongodb.net/Clust
 db = client.dbpokemon
 
 SECRET_KEY = 'sparta'
-
-model = tf.keras.models.load_model('./static/model/model_SGD.h5')
-
+model = tf.keras.models.load_model('./static/model/model_SGD_add_1.h5')
 bp = Blueprint("machine", __name__, url_prefix='/machine')
 
 
@@ -74,8 +72,8 @@ def predict_poketmon():
     pred = model.predict(test_generator)
     max_value = max(pred[-1])
     print(max_value)
-    if max_value <= 0.8:
-        return jsonify({'result': '등록된 포켓몬이 아닙니다!'})
+    if max_value <= 0.7:
+        return jsonify({'result': 'none'})
     for index, k in enumerate(pred[-1]):
         if k == max_value:
             result = poket_all_class[index]

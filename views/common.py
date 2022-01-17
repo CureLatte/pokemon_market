@@ -28,10 +28,10 @@ def token_check():
     try:
         if token_receive is not None:
             payload = jwt.decode(token_receive, app.secret_key, algorithms=['HS256'])
+            # print(payload['user_id'])
             return jsonify({'user_id': payload['user_id']})
         else:
             return jsonify({'user_id': 'None'})
-
     except jwt.ExpiredSignatureError:
         return redirect(url_for("sign_in", msg="로그인 시간이 만료되었습니다."))
     except jwt.exceptions.DecodeError:
