@@ -1,0 +1,36 @@
+<div class="header_wrap">
+    <header class="flex header">
+        <a class="logo" href="/">
+            <h1>
+                <img src="/static/image/logo.png" alt="/">
+            </h1>
+        </a>
+        <form class="form_common" action="#">
+            <input type="text" placeholder="검색">
+        </form>
+        <ul class="flex dirct_gnb">
+            <li>
+                <a href="/make_new">
+                    <i class="fas fa-sync-alt"><strong>트레이드</strong></i>
+                </a>
+            </li>
+            <li>
+                <a href="/profile/home">
+                    <i class="fas fa-user-circle"><strong>프로필</strong></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"><strong>로그아웃</strong></i>
+                </a>
+            </li>
+        </ul>
+    </header>
+</div>
+
+<script>
+    function logout() {
+        $.removeCookie('mytoken', { path: '/' });
+        window.location.reload();
+    }
+</script>

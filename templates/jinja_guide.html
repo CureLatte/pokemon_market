@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width : 1000px;
+            height : 400px;
+            background-color: #4e5968;
+        }
+        .truebox{
+            width : 300px;
+            height: 400px;
+            background-color: aquamarine;
+        }
+        .box1{
+            width : 300px;
+            height: 400px;
+            background-color: aliceblue;
+        }
+        .box2{
+            width : 300px;
+            height: 400px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        {{ 변수 }}
+        {% set a = 2 %}
+        {% if a == 5 %}
+        <div class="truebox">
+        </div>
+        {% elif a == 2 %}
+        <div class="box2">
+        </div>
+        {% else %}
+        <div class="box1">
+        </div>
+        {% endif  %}
+
+        {% for k in range(3) %}
+        <div class="box1">
+            {{ k }}
+        </div>
+        {% endfor %}
+    </div>
+<div class="box1">
+    {{ container['my_box'][:3] }}
+    {{ container['my_box'] | length }}
+    {{ container['my_box'][1] }}
+    {% for k in container['my_box'] %}
+    {% endfor %}
+</div>
+
+</body>
+</html>
