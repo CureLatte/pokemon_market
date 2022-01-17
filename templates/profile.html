@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="../static/css/header.css">
-    <link rel="stylesheet" href="../static/css/footer.css">
-    <link rel="stylesheet" href="../static/css/profile.css">
-    <link rel="stylesheet" href="../static/css/no.css">
-    <link rel="stylesheet" href="../static/css/common.css">
+    <title>profile</title>
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <link rel="stylesheet" href="/static/css/profile.css">
+    <link rel="stylesheet" href="/static/css/no.css">
+    <link rel="stylesheet" href="/static/css/common.css">
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="../static/javascript/profile.js"></script>
@@ -17,16 +17,22 @@
 {% include 'header.html' %}
     <div class="flex top-content">
         <div class="left-profile-box">
-            <img src="/static/image/hi.jpeg"/>
-            <ul class="mt70">
+            <img src="/static/image/defalut_pokemons_img/{{container['interest_poket']}}.png"/>
+            <ul class="mt70 profile-box">
                 <li>
-                    <p>트레이너 : <span>{{container['avatar']}}</span></p>
+                    <p>트레이너 : <span>{{container['user_id']}}</span></p>
                 </li>
                 <li class="mt20">
                     <p>성별 : <span>{{container['gender']}}</span></p>
                 </li>
                 <li class="mt20">
                     <p>전화번호 : <span>{{container['phone_number']}}</span></p>
+                </li>
+                <li class="mt20">
+                    <p>관심 포켓몬 : <span>{{container['interest_poket']}}</span></p>
+                </li>
+                <li class="mt20">
+                    <p>잔여 포인트 : <span>{{container['point']}}point</span></p>
                 </li>
                 <li>
                     <img class="profile-bot-img" src='/static/image/pika.jpg'>
@@ -38,30 +44,10 @@
             {% set b = get_mon | length %}
             {% for i in range(b) %}
             <div class="r-box-item">
-                <img src="/static/image/{{get_mon[i]}}"/>
+               <a><img src="/static/image/content/{{get_mon[i]}}"/></a>
             </div>
             {% endfor %}}
-<!--            <div class="r-box-item">-->
-<!--                <img src="/static/image/hi.jpeg"/>-->
-<!--            </div>-->
-<!--            <div class="r-box-item">-->
-<!--                <img src="/static/image/hi.jpeg"/>-->
-<!--            </div>-->
-<!--            <div class="r-box-item">-->
-<!--                <img src="/static/image/hi.jpeg"/>-->
-<!--            </div>-->
-<!--            <div class="r-box-item">-->
-<!--                <img src="/static/image/hi.jpeg"/>-->
-<!--            </div>-->
-<!--            <div class="r-box-item">-->
-<!--                <img src="/static/image/hi.jpeg"/>-->
-<!--            </div>-->
-<!--            <div class="r-box-item">-->
-<!--                <img src="/static/image/hi.jpeg"/>-->
-<!--            </div>-->
-<!--            <div class="r-box-item">-->
-<!--                <img src="/static/image/hi.jpeg"/>-->
-<!--            </div>-->
+
         </div>
     </div>
     <div>
@@ -71,10 +57,7 @@
                     <img class="open-ball" src="/static/image/open_ball.png">
                     <span>거래중</span>
                 </a>
-                <a>
-                    <img class="close-ball" src="/static/image/closs_ball.png">
-                    <span>구매</span>
-                </a>
+
             </div>
         </div>
         <ul class="mt50 bot-list">
@@ -90,72 +73,8 @@
                 <span>{{mon_date[i]}}</span>
                 {% endfor %}
             </li>
-<!--             <li>-->
-<!--                <div>-->
-<!--                    <img src="/static/image/hi.jpeg"/>-->
-<!--                </div>-->
-<!--                <h5>-->
-<!--                    titletitletitlet-->
-<!--                </h5>-->
-<!--                <span>ddddd</span>-->
-<!--            </li>-->
-<!--             <li>-->
-<!--                <div>-->
-<!--                    <img src="/static/image/hi.jpeg"/>-->
-<!--                </div>-->
-<!--                <h5>-->
-<!--                    titletitletitlet-->
-<!--                </h5>-->
-<!--                <span>ddddd</span>-->
-<!--            </li>-->
-<!--             <li>-->
-<!--                <div>-->
-<!--                    <img src="/static/image/hi.jpeg"/>-->
-<!--                </div>-->
-<!--                <h5>-->
-<!--                    titletitletitlet-->
-<!--                </h5>-->
-<!--                <span>ddddd</span>-->
-<!--            </li>-->
-<!--             <li>-->
-<!--                <div>-->
-<!--                    <img src="/static/image/hi.jpeg"/>-->
-<!--                </div>-->
-<!--                <h5>-->
-<!--                    titletitletitlet-->
-<!--                </h5>-->
-<!--                <span>ddddd</span>-->
-<!--            </li>-->
         </ul>
-        <ul class="mt50 bot-list-2">
-            <li>
-                <div>
-                    <img src="/static/image/hi.jpeg"/>
-                </div>
-                <h5>
-                    titletit
-                </h5>
-                <span>ddddd</span>
-            </li>
-             <li>
-                <div>
-                    <img src="/static/image/hi.jpeg"/>
-                </div>
-                <h5>
-                    titlet
-                </h5>
-                <span>ddddd</span>
-            </li>
-             <li>
-                <div>
-                    <img src="/static/image/hi.jpeg"/>
-                </div>
-                <h5>
-                    titletitlet
-                </h5>
-                <span>ddddd</span>
-            </li>
-        </ul>
+
     </div>
 {% include 'footer.html' %}
 </body>

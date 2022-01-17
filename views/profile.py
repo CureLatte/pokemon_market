@@ -16,11 +16,17 @@ app = Flask(__name__)
 app.secret_key = 'sparta'
 
 
-
+# @bp.route('/')
+# def load_make_new_page():
+#     token_receive = request.cookies.get('mytoken')
+#     if token_receive is not None:
+#         return render_template('profile.html')
+#     else:
+#         return render_template('sign_in.html')
 
 @bp.route('/home', methods=['GET'])
 def open_profile():
-    user = db.users.find_one({'user_id': 'qwer2'})
+    user = db.users.find_one({'user_id': 'qwer1'})
     pokemon = list(db.market.find({'user_id': 'qwer1'}, {'_id': False}))
     title = []
     photo = []
@@ -36,6 +42,10 @@ def open_profile():
         for i in j:
             monster.append(j[i])
 
-
+    title = title[::-1]
+    photo = photo[::-1]
+    date = date[::-1]
+    monster = monster[::-1]
     # print(user['poket_box'][0])
-    return render_template('profile.html', container=user, mon_title=title, mon_photo=photo, mon_date=date, get_mon=monster)
+    return render_template('profile.html', container=user, mon_title=title, mon_photo=photo, mon_date=date,
+                           get_mon=monster, monster=pokemon)
