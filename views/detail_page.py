@@ -35,6 +35,7 @@ def load_my_feed(maket_id):
         return render_template('detail_page.html', maket=maket, owner_user=owner_user)
 
 
+
 @bp.route('/', methods=['POST'])
 def upload_comment():
     logedin_receive = request.form["logedin_give"]
@@ -120,3 +121,11 @@ def like_api():
     now_like = target['like']
 
     return jsonify({'like_num': now_like})
+
+@bp.route('/random', methods=['POST'])
+def random_api():
+    id_receive = request.form["id_give"]
+    interest = db.users.find_one({'user_id': id_receive})['interest_poket']
+    match = list(db.market.find({'category': interest}, {'_id': False}))
+
+    return jsonify({'user_interest': match})
