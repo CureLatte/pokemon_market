@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Pokemon Store</title>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link rel="stylesheet" href="/static/css/no.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <link rel="stylesheet" href="/static/css/sort_pokemon.css">
+    <script src="/static/javascript/sort_pokemon.js"></script>
+    <script src="/static/javascript/header.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.11.0/jquery-ui.min.js"></script>
@@ -13,13 +21,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-    <link rel="stylesheet" href="/static/css/no.css">
-    <link rel="stylesheet" href="/static/css/common.css">
-    <link rel="stylesheet" href="/static/css/header.css">
-    <link rel="stylesheet" href="/static/css/footer.css">
-    <link rel="stylesheet" href="/static/css/sort_pokemon.css">
-    <script src="/static/javascript/sort_pokemon.js"></script>
-    <script src="/static/javascript/header.js"></script>
 </head>
 <body>
 {% include 'header.html' %}
@@ -34,7 +35,6 @@
         게시글이 없습니다!
         <button class="back_to_main_page" onclick="window.location.href='/'"> 돌아가기 </button>
     </div>
-
     <div class="none_data"></div>
     {% else %}
     {% set rowcnt = total//5 +1 %}
@@ -92,7 +92,7 @@
             <p>다음</p>
         </div>
     </div>
-</button>
+</div>
 {% endif %}
 {% include 'footer.html' %}
 </body>
