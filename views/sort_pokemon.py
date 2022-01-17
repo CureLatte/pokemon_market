@@ -29,6 +29,6 @@ def token_check(category, page_number):
         container = list(db.market.find({'category': category}))
         container.sort(key=lambda x: x['date'], reverse=True)
         time_all = datetime.now()
-        return render_template('sort_pokemon.html', category=category ,container=container, curr_day=time_all.day, curr_hour=time_all.hour)
+        return render_template('sort_pokemon.html', category=category ,container=container, curr_day=time_all.day, curr_hour=time_all.hour, curr_min=time_all.minute)
     else:
         return redirect(url_for('main'))
