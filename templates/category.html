@@ -1,8 +1,14 @@
 <div class="category_box_wrap mt40" id='category_box'>
     <div class="category_box">
-        <div class="category_header">
+        <div class="category_box_header flex">
+            <div class="category_header">
             카테고리
+            </div>
+            <div class="category_box_out" id="modal_out">
+
+            </div>
         </div>
+
         <hr style="border: 1px solid #ddd">
         <div class="category_box_first_words">
             <div class="category_box_first_words_row">
@@ -38,7 +44,7 @@
                     <div class="category_pokemons_box" onclick="move_pokemon_page('{{row[(i)*5+j]}}')">
                         {% set base_path = '../static/image/default_pokemons_img/'%}
                         {% set filepath = base_path + row[(i)*5+j] + '.png'%}
-                        <img src="{{ filepath }}">
+                        <img loading="lazy" src="{{ filepath }}">
                         <p>{{ row[(i)*5+j] }}</p>
                     </div>
                     {% endif %}
