@@ -21,6 +21,8 @@ const inputImage = document.getElementById("input_file")
     inputImage.addEventListener("change", e => {
         $('#predict_writing_image').css('display','none')
         $('#pokemon_name').text("#")
+        $('.alert').css('display','none')
+        $('#check_alert').css('display','none')
         global_result=''
         readImage(e.target)
 })
@@ -93,18 +95,37 @@ function posting() {
     let user_id = global_id
     let form_data = new FormData()
 
-    if(typeof photo === "undefined")
-        return alert("포켓몬 사진을 넣어 주세요")
-    if(title == "")
-        return alert("제목을 입력해주세요")
-    if(desc == "")
-        return alert("내용을 입력해주세요")
-    if(price == "")
-        return alert("가격을 입력해주세요")
-    if( $('.pocket_book_image_predict_tag').css('display')==='none')
-        return alert('판별 중 입니다!')
-    if($('#pokemon_name').text() === '판별 불가')
-        return alert('분류 할 수 없습니다!')
+    if(typeof photo === "undefined"){
+        $('.alert').css('display','flex')
+        $('#check_alert').css('display','block')
+        return $('#alert_mention').text('그림을 올려주세요!')
+    }
+
+    if(title === "") {
+        $('.alert').css('display','flex')
+        $('#check_alert').css('display','block')
+        return $('#alert_mention').text('제목을 입력해 주세요')
+    }
+    if(desc === "") {
+        $('.alert').css('display','flex')
+        $('#check_alert').css('display','block')
+        return $('#alert_mention').text('내용을 입력해주세요')
+    }
+    if(price === "") {
+        $('.alert').css('display','flex')
+        $('#check_alert').css('display','block')
+        return $('#alert_mention').text('가격을 입력해 주세요')
+    }
+    if( $('#pokemon_name').text() === '') {
+        $('.alert').css('display','flex')
+        $('#check_alert').css('display','block')
+        return $('#alert_mention').text('판별중!')
+    }
+    if($('#pokemon_name').text() === '판별 불가') {
+        $('.alert').css('display','flex')
+        $('#check_alert').css('display','block')
+        return $('#alert_mention').text('다른 이미지를 올려주세요')
+    }
 
 
     console.log(result)
@@ -134,4 +155,9 @@ function posting() {
             window.location.href='/main_page'
         }
     });
+}
+
+function check_alert(){
+    $('.alert').css('display','none')
+    $('#check_alert').css('display','none')
 }
