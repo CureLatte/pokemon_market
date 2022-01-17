@@ -7,6 +7,9 @@
     background-color: white;
     padding: 30px 30px 0px 30px;
     border-radius: 20px;
+    max-height : 1000px;
+    overflow: scroll;
+
 }
 
 .category_box_header{
@@ -105,7 +108,7 @@
     margin-left: 15px;
 }
 .modal {
-    padding-top: 350px;
+    padding-top: 50px;
     z-index: 100;
     position: fixed;
     top: 0;

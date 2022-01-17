@@ -134,7 +134,7 @@
             {% for i in range(0, market_len, 5) %}
             <div class="flex content-wrapper mt30">
                 {% for j in range(i, i+5) if j < market_list | length %} <li>
-                    {% set detail_url = '/detail_page/' + market_list[i]['maket_id'] %}
+                    {% set detail_url = '/detail_page/' + market_list[j]['maket_id'] %}
                     <a href="{{ detail_url }}">
                         <div>
                             {% set photo_url = '/static/image/content/' + market_list[j]['photo'] %}
