@@ -43,14 +43,18 @@ def open_profile():
         photo.append(pokemon[i]['photo'])
         date.append(pokemon[i]['date'])
 
-    for j in user['poket_box']:
-        for i in j:
-            monster.append(j[i])
+    if 'poket_box' not in user:
+        monster = monster
+    else:
+        for j in user['poket_box']:
+            for i in j:
+                monster.append(j[i])
 
+    monster = monster[::-1]
     title = title[::-1]
     photo = photo[::-1]
     date = date[::-1]
-    monster = monster[::-1]
+
     # print(user['poket_box'][0])
     return render_template('profile.html', container=user, mon_title=title, mon_photo=photo, mon_date=date,
                            get_mon=monster, poket=pokemon)
