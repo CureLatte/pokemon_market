@@ -14,7 +14,7 @@
   display: block;
   width: 120px;
 }
-.form_common {
+.header_wrap .form_common {
   width: 400px;
   height: 85px;
   line-height: 83px;
