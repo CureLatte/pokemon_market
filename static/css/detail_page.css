@@ -120,12 +120,16 @@ p {
 }
 
 /* ################### */
+.detail_page_detail {
+  border-top: 1px solid #ddd;
+}
 .detail_page_seller {
   width: 140px;
   height: 40px;
   line-height: 40px;
   text-align: left;
   position: relative;
+
 }
 
 .detail_page_seller:before {

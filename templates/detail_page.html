@@ -29,7 +29,7 @@
                 <h5 class="h5_detail_page m0">{{ maket['header'] }}</h5>
                 <h4 class="h4_detail_page m0 mt20">{{ maket['price'] }}원</h4>
                 <div class="flex detail_page_history mt20">
-                    <i class="fas fa-heart"><span>23</span></i>
+                    <i class="fas fa-heart" id="like_num"><span>{{ maket['like'] }}</span></i>
                     <i class="fas fa-clock"><span>2시간 전</span></i>
                 </div>
                 <ul class="detail_page_info mt20">
@@ -51,7 +51,7 @@
                     </li>
                 </ul>
                 <div class="detail_page_btn flex mt30">
-                    <button class="btn_common"><i class="fas fa-heart"><strong>찜</strong></i></button>
+                    <button class="btn_common" onclick="like()"><i class="fas fa-heart"><strong>좋아요</strong></i></button>
                     <a href="#comment_h"><button class="btn_common"><i
                                 class="fas fa-comments"><strong>문의</strong></i></button></a>
                     <button class="btn_common" onclick="trade()"><i
@@ -59,17 +59,7 @@
                 </div>
             </div>
         </div>
-
-        <ul class=" detail_page_tag mt50 ">
-            <div class="flex">
-                <li># <span>이상해씨</span></li>
-                <li># <span>에스퍼</span></li>
-                <li># <span>높은레벨</span></li>
-                <li># <span>트레이드</span></li>
-            </div>
-        </ul>
-
-        <div class="mt70 detail_page_detali">
+        <div class="mt70 detail_page_detail">
             <div class="detail_page_seller">
                 <a href="#">
                     <img src="/static/image/{{owner_user['avatar']}}" alt="">
@@ -121,58 +111,9 @@
 
         <ul class="detail_page_recommend mt70">
             <h5 class="h5_detail_page">포캣스토어 추천 포켓몬</h5>
-            <div class="flex mt30">
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="/static/image/hi.jpeg" alt="1">
-                        </div>
-                        <h5 class="mt20">피카츄 선제시 팜@@@@@@@@@@@@@@</h5>
-                        <p>2500원</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="/static/image/hi.jpeg" alt="1">
-                        </div>
-                        <h5 class="mt20">피카츄 선제시 팜@@@@@@@@@@@@@@</h5>
-                        <p>2500원</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="/static/image/hi.jpeg" alt="1">
-                        </div>
-                        <h5 class="mt20">피카츄 선제시 팜@@@@@@@@@@@@@@</h5>
-                        <p>2500원</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="/static/image/hi.jpeg" alt="1">
-                        </div>
-                        <h5 class="mt20">피카츄 선제시 팜@@@@@@@@@@@@@@</h5>
-                        <p>2500원</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="/static/image/hi.jpeg" alt="1">
-                        </div>
-                        <h5 class="mt20">피카츄 선제시 팜@@@@@@@@@@@@@@</h5>
-                        <p>2500원</p>
-                    </a>
-                </li>
-            </div>
+            <div class="flex mt30" id="recommend_list"></div>
         </ul>
     </div>
-
-
     <p id="sc_p" style="display: none;">{{maket['maket_id']}}</p>
 </body>
-
 </html>

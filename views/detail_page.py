@@ -35,6 +35,7 @@ def load_my_feed(maket_id):
         return render_template('detail_page.html', maket=maket, owner_user=owner_user)
 
 
+
 @bp.route('/', methods=['POST'])
 def upload_comment():
     logedin_receive = request.form["logedin_give"]
@@ -97,3 +98,34 @@ def trade():
     )
     db.market.delete_one({"maket_id": sc_receive})
     return jsonify({'msg': '등록완료'})
+
+
+@bp.route('/api/like', methods=['POST'])
+def like_api():
+    id_receive = request.form['id_give']
+    target = db.market.find_one({'user_id': id_receive})
+
+    target_list = target['like_list']
+    current_like = target['like']
+
+    if id_receive in target_list:
+        sub_like = current_like - 1
+        db.market.update({'user_id': id_receive}, {'$pull': {'like_list': id_receive}})
+        db.market.update_one({'user_id': id_receive}, {'$set': {'like': sub_like}})
+
+    else:
+        add_like = current_like + 1
+        db.market.update({'user_id': id_receive}, {'$addToSet': {'like_list': id_receive}})
+        db.market.update_one({'user_id': id_receive}, {'$set': {'like': add_like}})
+
+    now_like = target['like']
+
+    return jsonify({'like_num': now_like})
+
+@bp.route('/random', methods=['POST'])
+def random_api():
+    id_receive = request.form["id_give"]
+    interest = db.users.find_one({'user_id': id_receive})['interest_poket']
+    match = list(db.market.find({'category': interest}, {'_id': False}))
+
+    return jsonify({'user_interest': match})
