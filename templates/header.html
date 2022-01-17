@@ -20,10 +20,17 @@
                 </a>
             </li>
             <li>
-                <a href="/sing_in" onclick="logout()">
+                <a href="#" onclick="logout()">
                     <i class="fas fa-sign-out-alt"><strong>로그아웃</strong></i>
                 </a>
             </li>
         </ul>
     </header>
 </div>
+
+<script>
+    function logout() {
+        $.removeCookie('mytoken', { path: '/' });
+        window.location.reload();
+    }
+</script>

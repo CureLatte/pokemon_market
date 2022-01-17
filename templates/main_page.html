@@ -17,9 +17,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <script src="/static/javascript/detail_page.js"></script>
     <script src="/static/javascript/main_page.js"></script>
     <script src="/static/javascript/category.js"></script>
+    <script src="/static/javascript/header.js"></script>
 </head>
 
 <body>
@@ -38,7 +40,8 @@
         </div>
         <p class="main_banner_ball"><img src="/static/image/main_images/Pokeball_96px.png" alt="1"></p>
         <p class="main_banner_ball"><img src="/static/image/main_images/Ash-Hat_96px.png" alt="2"></p>
-        <p class="main_banner_modal"><img src="/static/image/main_images/Pokeball_96px.png" style="transform: scaleX(-1);"  id="category_button" onclick="test()"></p>
+        <p class="main_banner_modal"><img src="/static/image/main_images/Pokeball_96px.png"
+                style="transform: scaleX(-1);" id="category_button" onclick="test()"></p>
     </div>
     {% include 'category.html' %}
     <ul class="category_icon flex mt50">
@@ -104,23 +107,22 @@
             <h4 class="h4_common main_common">현재 가장 핫한 트레이드! <a href="#">모두보기</a></h4>
             <div class="flex content-wrapper mt30">
                 {% set j = 0 %}
-                {% for i in range(market_list | length) if j < 4 %}
-                {% if market_list[i]['category'] == login_interest_poket %}
-                <li>
-                    {% set detail_url = '/detail_page/' +  market_list[i]['maket_id'] %}
+                {% for i in range(market_list | length) if j < 4 %} {% if
+                    market_list[i]['category']==login_interest_poket %} <li>
+                    {% set detail_url = '/detail_page/' + market_list[i]['maket_id'] %}
                     <a href="{{ detail_url }}">
                         <div>
-                            {% set photo_url = '/static/image/content/' +  market_list[i]['photo'] %}
+                            {% set photo_url = '/static/image/content/' + market_list[i]['photo'] %}
                             <img src="{{ photo_url }}" />
                         </div>
 
                         <span>{{ market_list[i]['header'] }}</span>
                         <p class="mt30">{{ market_list[i]['price'] }}원<strong>{{ market_list[i]['date'] }}</strong></p>
                     </a>
-                </li>
-                {% set j = j + 1 %}
-                {% endif %}
-                {% endfor %}
+                    </li>
+                    {% set j = j + 1 %}
+                    {% endif %}
+                    {% endfor %}
             </div>
         </div>
         <div class="prod-list-content">
@@ -128,22 +130,21 @@
             {% set market_len = market_list | length %}
 
             {% for i in range(0, market_len, 5) %}
-                <div class="flex content-wrapper mt30">
-                {% for j in range(i, i+5) if j < market_list | length %}
-                <li>
-                    {% set detail_url = '/detail_page/' +  market_list[i]['maket_id'] %}
+            <div class="flex content-wrapper mt30">
+                {% for j in range(i, i+5) if j < market_list | length %} <li>
+                    {% set detail_url = '/detail_page/' + market_list[i]['maket_id'] %}
                     <a href="{{ detail_url }}">
                         <div>
-                            {% set photo_url = '/static/image/content/' +  market_list[j]['photo'] %}
+                            {% set photo_url = '/static/image/content/' + market_list[j]['photo'] %}
                             <img src="{{ photo_url }}" />
                         </div>
 
                         <span>{{ market_list[j]['header'] }}</span>
                         <p class="mt30">{{ market_list[j]['price'] }}원<strong>{{ market_list[j]['date'] }}</strong></p>
                     </a>
-                </li>
-                {% endfor %}
-                </div>
+                    </li>
+                    {% endfor %}
+            </div>
             {% endfor %}
         </div>
     </ul>
