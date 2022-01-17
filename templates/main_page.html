@@ -138,7 +138,7 @@
                     <a href="{{ detail_url }}">
                         <div>
                             {% set photo_url = '/static/image/content/' + market_list[j]['photo'] %}
-                            <img src="{{ photo_url }}" />
+                            <img loading="lazy" src="{{ photo_url }}" />
                         </div>
 
                         <span>{{ market_list[j]['header'] }}</span>
