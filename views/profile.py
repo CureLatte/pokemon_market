@@ -6,6 +6,8 @@ from flask import Flask
 import certifi
 from pymongo import MongoClient
 
+from views.common import check_decode
+
 ca = certifi.where()
 
 client = MongoClient(
@@ -16,18 +18,21 @@ app = Flask(__name__)
 app.secret_key = 'sparta'
 
 
-# @bp.route('/')
-# def load_make_new_page():
-#     token_receive = request.cookies.get('mytoken')
-#     if token_receive is not None:
-#         return render_template('profile.html')
-#     else:
-#         return render_template('sign_in.html')
+@bp.route('/home')
+def load_page():
+    token_receive = request.cookies.get('mytoken')
+    if token_receive is not None:
+        return render_template('profile.html')
+    else:
+        return render_template('sign_in.html')
+
 
 @bp.route('/home', methods=['GET'])
 def open_profile():
-    user = db.users.find_one({'user_id': 'qwer1'})
-    pokemon = list(db.market.find({'user_id': 'qwer1'}, {'_id': False}))
+    id_check = check_decode()
+    # print(id_check)
+    user = db.users.find_one({'user_id': id_check})
+    pokemon = list(db.market.find({'user_id': id_check}, {'_id': False}))
     title = []
     photo = []
     date = []
@@ -48,4 +53,4 @@ def open_profile():
     monster = monster[::-1]
     # print(user['poket_box'][0])
     return render_template('profile.html', container=user, mon_title=title, mon_photo=photo, mon_date=date,
-                           get_mon=monster, monster=pokemon)
+                           get_mon=monster, poket=pokemon)

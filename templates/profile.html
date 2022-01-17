@@ -17,7 +17,7 @@
 {% include 'header.html' %}
     <div class="flex top-content">
         <div class="left-profile-box">
-            <img src="/static/image/defalut_pokemons_img/{{container['interest_poket']}}.png"/>
+            <img src="/static/image/default_pokemons_img/{{container['interest_poket']}}.png"/>
             <ul class="mt70 profile-box">
                 <li>
                     <p>트레이너 : <span>{{container['user_id']}}</span></p>
@@ -63,12 +63,18 @@
         <ul class="mt50 bot-list">
             {% set a = mon_title | length %}
             {% for i in range(a) %}
+
+
             <li>
                 <div>
-                    <img src="/static/image/content/{{mon_photo[i]}}"/>
+                    <a href="/detail_page/{{poket[i]['maket_id']}}">
+                        <img src="/static/image/content/{{mon_photo[i]}}"/>
+                    </a>
                 </div>
                 <h5>
-                    {{mon_title[i]}}
+                    <a href="/detail_page/{{poket[i]['maket_id']}}">
+                        {{mon_title[i]}}
+                    </a>
                 </h5>
                 <span>{{mon_date[i]}}</span>
                 {% endfor %}
