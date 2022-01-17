@@ -19,9 +19,8 @@ $(document).ready(function (){
 
 const inputImage = document.getElementById("input_file")
     inputImage.addEventListener("change", e => {
-
         $('#predict_writing_image').css('display','none')
-        $('.pocket_book_image_predict_tag').css('display','none')
+        $('#pokemon_name').text("#")
         global_result=''
         readImage(e.target)
 })
@@ -61,9 +60,9 @@ function confirming(){
             $('#loading').css('display','none')
             $('#predict_writing_image').css('display','block')
             $('.pocket_book_image_predict_tag').css('display','block')
-            if (response['result'] === '등록된 포켓몬이 아닙니다!' )
+            if (response['result'] === 'none' )
             {
-                previewImage.src = '../static/image/' + 'no_class' + '.png'
+                previewImage.src = '/static/image/' + 'question' + '.jpg'
                 $('#pokemon_name').text('판별 불가')
             }
             else if(response['result'] === '확장자를 확인해주세요'){
@@ -71,7 +70,7 @@ function confirming(){
             }
             else{
                 global_result = response['result']
-                previewImage.src = '../static/image/default_pokemons_img/' + response['result'] + '.png'
+                previewImage.src = '/static/image/default_pokemons_img/' + response['result'] + '.png'
                 $('#pokemon_name').text('#'+response['result'])
             }
         }
@@ -104,6 +103,9 @@ function posting() {
         return alert("가격을 입력해주세요")
     if( $('.pocket_book_image_predict_tag').css('display')==='none')
         return alert('판별 중 입니다!')
+    if($('#pokemon_name').text() === '판별 불가')
+        return alert('분류 할 수 없습니다!')
+
 
     console.log(result)
 
