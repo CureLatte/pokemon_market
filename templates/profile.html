@@ -34,10 +34,13 @@
                 <li class="mt20">
                     <p>잔여 포인트 : <span>{{container['point']}}point</span></p>
                 </li>
-                <li>
-                    <img class="profile-bot-img" src='/static/image/pika.jpg'>
-                </li>
+
             </ul>
+<!--            <ul>-->
+<!--                <li>-->
+<!--                    <img class="profile-bot-img" src='/static/image/pika.jpg'>-->
+<!--                </li>-->
+<!--            </ul>-->
 
         </div>
         <div class="r-box">
@@ -55,7 +58,8 @@
             <div class="flex">
                 <a onclick="sale_pokemon()">
                     <img class="open-ball" src="/static/image/open_ball.png">
-                    <span>거래중</span>
+                    <span class="gnb">거래중</span>
+                    <img class="open-ball" src="/static/image/open_ball_right.png">
                 </a>
 
             </div>
@@ -63,8 +67,6 @@
         <ul class="mt50 bot-list">
             {% set a = mon_title | length %}
             {% for i in range(a) %}
-
-
             <li>
                 <div>
                     <a href="/detail_page/{{poket[i]['maket_id']}}">
