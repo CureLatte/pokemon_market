@@ -55,13 +55,20 @@
                 </div>
                 <div class="sort_content_card_desc_bottom flex mt30">
                     <p>{{ container[i*5+j]['price'] }}</p>
-                    {% set date_list = container[i*5+j]['date'].split('-')[2]%}
-                    {% set delta_time = curr_day - date_list|int %}
+                    {% set date_list_time = container[i*5+j]['date'].split('-')[2]%}
+                    {% set delta_time = curr_day - date_list_time|int %}
+                    {% set date_list_hour = container[i*5+j]['date'].split('-')[3]%}
+                    {% set delta_hour = curr_hour - date_list_hour|int %}
+                    {% set date_list_minute = container[i*5+j]['date'].split('-')[4]%}
+                    {% set delta_minute = curr_hour - date_list_minute|int %}
+
                     {% if delta_time == 0 %}
-                    {% set date_list = container[i*5+j]['date'].split('-')[3]%}
-                    {% set delta_hour = curr_hour - date_list|int %}
-                    <p class="time_data">{{ delta_hour }} 시간 전</p>
+                    {% if delta_hour == 0 %}
+                    <p class="time_data">{{ delta_minute }} 분 전</p>
                     {% else %}
+                    <p class="time_data">{{ delta_hour }} 시간 전</p>
+                    {% endif %}
+                    {% else  %}
                     <p class="time_data">{{ delta_time }} 일전</p>
                     {% endif %}
                 </div>
