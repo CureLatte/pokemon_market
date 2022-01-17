@@ -4,7 +4,7 @@ $(document).ready(
         $.ajax({
             type: "GET",
             url: "/common/token_check",
-            async:false,
+            async: false,
             data: {},
             success: function (response) {
                 let id = response['user_id']
@@ -14,17 +14,18 @@ $(document).ready(
                 }
             }
         });
-    })
 
-$(document).ready(
-    //유저맞춤형 랜덤 추천
-    function random() {
+        let sc = $('#sc_p').text()
         $.ajax({
-            type: 'POST',
-            url: '/detail_page/random',
-            async:false,
-            data: {id_give: hi},
+            type: "POST",
+            url: "/detail_page/random_test",
+            async: false,
+            data: {'aaa':sc},
             success: function (response) {
+                console.log(response['user_interest'])
+                if (response['user_interest'] ==='none'){
+                    return
+                }
                 let interest_market = response['user_interest']
                 console.log(interest_market)
 
@@ -37,7 +38,7 @@ $(document).ready(
                     let temp_html = `<li>
                                         <a href="/detail_page/${market}">
                                                 <div>
-                                                    <img src="${photo}" alt="1">
+                                                    <img src="/static/image/content/${photo}" alt="1">
                                                 </div>
                                             <h5 class="mt20">${title}</h5>
                                             <p>${price}</p>
@@ -45,11 +46,9 @@ $(document).ready(
                                     </li>`
 
                     $("#recommend_list").append(temp_html)
-                }
-            }
-        })
-    }
-)
+                }}
+        });
+    })
 
 function posting_comment() {
     let comment = $('#comment').val()

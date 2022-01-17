@@ -23,7 +23,7 @@
     <div class="detail_page_wrap">
         <div class="flex">
             <div class="detail_page_obj">
-                <img src="/static/image/hi.jpeg" alt="#">
+                <img src="/static/image/content/{{ maket['photo'] }}" alt="#">
             </div>
             <div class="detail_page_info">
                 <h5 class="h5_detail_page m0">{{ maket['header'] }}</h5>
@@ -62,7 +62,7 @@
         <div class="mt70 detail_page_detail">
             <div class="detail_page_seller">
                 <a href="#">
-                    <img src="/static/image/{{owner_user['avatar']}}" alt="">
+                    <img src="/static/image/{{owner_user['avatar']}}.png" alt="">
                     <span id="seller">{{ maket['user_id'] }}</span>
                 </a>
             </div>
@@ -82,8 +82,8 @@
             <div class="detail_page_commentes">
                 <h5>
                     <a href="#">
-                        <img src="/static/image/{{maket['comment'][i]['photo_avatar']}}" alt="#">
-                        {{ maket['comment'][i]["photo_user_id"] }}
+                        <img src="/static/image/default.png" alt="#">
+                        <span style="display: inline">{{ maket['comment'][i]["photo_user_id"] }}</span>
                     </a>
                 </h5>
                 <p class="mt20">
@@ -91,7 +91,6 @@
                 </p>
                 <span>2022년1월13일</span>
             </div>
-
 
             {% endfor %}
             {% else %}
