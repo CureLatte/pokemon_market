@@ -1,6 +1,4 @@
 #category_box{
-    display: none;
-
 }
 .category_box{
     width : 1200px;
@@ -11,6 +9,12 @@
     border-radius: 20px;
 }
 
+.category_box_header{
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
 .category_header{
     font-size: 35px;
     width : 200px;
@@ -19,6 +23,20 @@
     line-height: 1;
     color: #ffae00;
 }
+
+.category_box_out{
+    width : 40px;
+    height : 40px;
+    background-image: url("/static/image/no_class.png");
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-position: center;
+    cursor: pointer;
+    background-size: 100% 100%;
+}
+
+
+
 
 .category_box_first_words_row{
     width :100%;
@@ -85,4 +103,15 @@
     text-align: center;
     margin-top: 20px;
     margin-left: 15px;
+}
+.modal {
+    padding-top: 350px;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.4);
 }

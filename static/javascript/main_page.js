@@ -54,18 +54,19 @@ function auto_search_close() {
     document.getElementById('auto-search').style.display = 'none';
 }
 
-function test(){
-    if($('#category_box').css('display')==='none'){
-        $('#category_button').attr('src','/static/image/main_images/Open-Pokeball_96px.png');
-        $('#category_box').show();
-    }
-    else{
-        $('#category_button').attr('src','/static/image/main_images/Pokeball_96px.png');
-        $('#category_box').hide();
-    }
-}
 
 function move_search_result(){
     let result = $('#search').val();
     window.location.href='/sort_pokemon/' + result + '/1'
 }
+
+$(function(){
+    $("#category_button").click(function(){
+        $('#category_button').attr('src','/static/image/main_images/Open-Pokeball_96px.png');
+        $(".modal").fadeIn();
+    })
+    $("#modal_out").click(function(){
+        $('#category_button').attr('src','/static/image/main_images/Pokeball_96px.png');
+        $(".modal").fadeOut();
+    })
+})
