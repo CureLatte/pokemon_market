@@ -18,7 +18,7 @@ app = Flask(__name__)
 app.secret_key = 'sparta'
 
 
-@bp.route('/home')
+@bp.route('/')
 def load_page():
     token_receive = request.cookies.get('mytoken')
     if token_receive is not None:
