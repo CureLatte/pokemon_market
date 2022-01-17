@@ -25,6 +25,7 @@
 
 </head>
 <body>
+<img src="../static/image/sign_up_backimg.jpeg" srcset="../static/image/sign_up_backimg.jpeg 1000w, ../static/image/sign_up_backimg.jpeg 1500w, ../static/image/sign_up_backimg.jpeg 1800" />
 <div class="container">
     <div id="title">
         <img src="../static/image/logo.png">
@@ -37,9 +38,15 @@
         <input type="password" id="user_pw" required="required"/>
         <span>비밀번호</span>
     </div>
-    <div class="input-box">
-        <input type="submit" onclick="sign_in()" value="로그인">
+    <div id="sign-in-btn">
+        <div class="input-box">
+            <input type="submit" onclick="sign_in()" value="로그인">
+        </div>
+        <div class="input-box">
+            <input type="submit" class="btn_common" onclick="location.href='/sign_up'" value="회원가입">
+        </div>
     </div>
+
     <div id="help-box">
         <p id="help-login"></p>
     </div>
