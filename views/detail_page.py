@@ -97,3 +97,26 @@ def trade():
     )
     db.market.delete_one({"maket_id": sc_receive})
     return jsonify({'msg': '등록완료'})
+
+
+@bp.route('/api/like', methods=['POST'])
+def like_api():
+    id_receive = request.form['id_give']
+    target = db.market.find_one({'user_id': id_receive})
+
+    target_list = target['like_list']
+    current_like = target['like']
+
+    if id_receive in target_list:
+        sub_like = current_like - 1
+        db.market.update({'user_id': id_receive}, {'$pull': {'like_list': id_receive}})
+        db.market.update_one({'user_id': id_receive}, {'$set': {'like': sub_like}})
+
+    else:
+        add_like = current_like + 1
+        db.market.update({'user_id': id_receive}, {'$addToSet': {'like_list': id_receive}})
+        db.market.update_one({'user_id': id_receive}, {'$set': {'like': add_like}})
+
+    now_like = target['like']
+
+    return jsonify({'like_num': now_like})
