@@ -1,0 +1,201 @@
+.top-content{
+    background-color: aliceblue;
+}
+.top-gnb{
+    border-bottom: solid 1px #ffae00;
+}
+.open-ball{
+    width: 30px;
+}
+.close-ball{
+    width: 30px;
+}
+.left-profile-box{
+    width: 500px;
+
+}
+/*.left-profile-box .profile-bot-img{*/
+/*    margin-top: 200px;*/
+/*    width: 500px;*/
+/*    height: 280px;*/
+/*}*/
+
+
+.left-profile-box img{
+    width: 300px;
+    height: 300px;
+   border-radius: 10%;
+    margin-top: 60px;
+    background-color: #ffae00;
+    margin-left: 30px;
+}
+.profile-box p{
+    font-size: 20px;
+    font-weight: 550;
+    margin-left: 30px;
+}
+
+
+.top-content{
+    width: 1200px;
+    margin: 0 auto;
+
+}
+
+
+.r-box {
+    margin-top: 30px;
+    margin-right: 20px;
+    width: 630px;
+    height: 610px;
+    display: grid;
+    grid-gap: 20px;
+    overflow: hidden;
+    grid-template-columns: repeat(3, 1fr);
+    background-image: url("../image/pokeball.jpg");
+    background-size: 3000px;
+    background-position: center;
+
+}
+
+.r-box-item{
+    width: 170px;
+    min-height: 170px;
+    max-width: 170px;
+    max-height: 170px;
+    padding: 10px;
+    background-color: #ccc;
+    position: relative;
+    overflow: hidden;
+    border-radius: 70%;
+}
+.r-box-item img{
+    position: absolute;
+    left: -20%;
+    max-width: 300px;
+    min-width: 200px;
+    min-height: 190px;
+    top: 0;
+}
+.top-gnb{
+    width: 1200px;
+    margin: 0 auto;
+
+}
+.top-gnb a{
+    font-size: 20px;
+}
+.top-gnb div{
+    margin: 0 auto;
+    width: 270px;
+
+}
+.bot-list {
+    width: 1200px;
+    margin: 0 auto;
+    background-color: aliceblue;
+    border-radius: 5%;
+
+}
+.bot-list li{
+    position: relative;
+    height: 150px;
+    margin-top: 35px;
+
+}
+.bot-list li:first-child{
+    margin-top: 0px;
+}
+.bot-list li h5{
+    font-size: 45px;
+    font-weight: 600;
+    position: absolute;
+    top: 50%;
+    left: 230px;
+    transform: translateY(-50%);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 680px;
+
+}
+.bot-list li div{
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 80px;
+    display: inline-block;
+    position: absolute;
+    border-radius: 70%;
+    background-color: #ffae00;
+}
+.bot-list li img{
+    max-width: 110px;
+    min-width: 100px;
+    min-height: 100px;
+
+}
+.bot-list li span{
+    position: absolute;
+    font-weight: 550;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 80px;
+}
+.bot-list-2 {
+    width: 1200px;
+    margin: 0 auto;
+
+}
+.bot-list-2 li{
+    position: relative;
+    height: 150px;
+    margin-top: 35px;
+
+}
+.bot-list-2 li:first-child{
+    margin-top: 0px;
+}
+.bot-list-2 li h5{
+    font-size: 45px;
+    font-weight: 600;
+    position: absolute;
+    top: 50%;
+    left: 230px;
+    transform: translateY(-50%);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 680px;
+
+}
+.bot-list-2 li div{
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 80px;
+    display: inline-block;
+    position: absolute;
+    border-radius: 70%;
+}
+.bot-list-2 li img{
+    max-width: 110px;
+    min-width: 100px;
+    min-height: 100px;
+
+}
+.bot-list-2 li span{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 80px;
+}
+
+.gnb{
+    font-size: 20px;
+    font-weight: 550;
+}

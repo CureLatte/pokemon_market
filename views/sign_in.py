@@ -9,7 +9,6 @@ app = Flask(__name__)
 app.secret_key = 'sparta'
 
 ca = certifi.where()
-
 client = MongoClient("mongodb+srv://test:sparta@cluster0.cpg4z.mongodb.net/Cluster0?retryWrites=true&w=majority", tlsCAFile=ca)
 db = client.dbpokemon
 
