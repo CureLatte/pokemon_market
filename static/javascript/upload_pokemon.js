@@ -60,7 +60,7 @@ function confirming(){
             $('#loading').css('display','none')
             $('#predict_writing_image').css('display','block')
             $('.pocket_book_image_predict_tag').css('display','block')
-            if (response['result'] === '등록된 포켓몬이 아닙니다!' )
+            if (response['result'] === 'none' )
             {
                 previewImage.src = '/static/image/' + 'question' + '.jpg'
                 $('#pokemon_name').text('판별 불가')
@@ -103,6 +103,9 @@ function posting() {
         return alert("가격을 입력해주세요")
     if( $('.pocket_book_image_predict_tag').css('display')==='none')
         return alert('판별 중 입니다!')
+    if($('#pokemon_name').text() === '판별 불가')
+        return alert('분류 할 수 없습니다!')
+
 
     console.log(result)
 
