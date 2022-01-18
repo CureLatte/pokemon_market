@@ -5,6 +5,10 @@
     margin: 0 auto;
     padding: 0;
 }
+.h4_common > img {
+    width: 35%;
+}
+
 .sort_row{
     flex-direction: row;
     justify-content: space-between;
@@ -107,6 +111,7 @@
     border-radius: 8px;
     cursor: pointer;
     margin-left: 40px;
+    right: 13%;
 }
 .back_to_main_page:hover{
     background-color: #1b64d9;
