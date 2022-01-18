@@ -12,6 +12,11 @@
 
 }
 
+.category_box::-webkit-scrollbar{
+    display:none; 
+}
+
+
 .category_box_header{
     flex-direction: row;
     justify-content: space-between;
