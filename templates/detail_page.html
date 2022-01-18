@@ -66,7 +66,7 @@
         <div class="mt70 detail_page_detail">
             <div class="detail_page_seller">
                 <a href="#">
-                    <img src="/static/image/{{owner_user['avatar']}}.png" alt="">
+                    <img src="/static/image/default_pokemons_img/{{owner_user['avatar']}}" alt="">
                     <span id="seller">{{ maket['user_id'] }}</span>
                 </a>
             </div>
@@ -86,7 +86,7 @@
             <div class="detail_page_commentes">
                 <h5>
                     <a href="#">
-                        <img src="/static/image/default.png" alt="#">
+                        <img src="/static/image/default_pokemons_img/{{ maket['comment'][i]['photo_avatar'] }}" alt="#">
                         <span style="display: inline">{{ maket['comment'][i]["photo_user_id"] }}</span>
                     </a>
                 </h5>
