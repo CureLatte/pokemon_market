@@ -79,11 +79,6 @@ def upload_db_data():
         'content': '',
         'comment':
             [
-                {
-                    'photo_user_id': '',
-                    'photo_comment': '',
-                    'photo_avatar': ''
-                }
             ],
         'category': result,
         'photo': filename,

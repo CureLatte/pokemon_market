@@ -25,10 +25,11 @@ def main():
 @bp.route('/submit', methods=['POST'])
 def sign_up_submit():
     receive_user = request.form.to_dict()
+    avatar_img= request.form['interest_poket'] +'.png'
 
     receive_user['password'] = hashlib.sha256(
         receive_user['password'].encode('utf-8')).hexdigest()
-    receive_user['avatar'] = 'default'
+    receive_user['avatar'] = avatar_img
     receive_user['point'] = 5000
 
     db.users.insert_one(receive_user)
