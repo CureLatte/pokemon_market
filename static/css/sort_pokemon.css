@@ -48,6 +48,9 @@
     text-align: left;
     font-size: 18px;
     font-weight: 600;
+    overflow: hidden;
+    width : 170px;
+    height : 20px;
 }
 
 #price{

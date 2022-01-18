@@ -117,17 +117,20 @@
             <h4 class="h4_common main_common">내가 관심 있는 포켓몬!<a href="#">모두보기</a></h4>
             <div class="flex content-wrapper mt30">
                 {% set j = 0 %}
-                {% for i in range(market_list | length) if j < 4 %} {% if
-                    market_list[i]['category']==login_interest_poket %} <li>
-                    {% set detail_url = '/detail_page/' + market_list[i]['maket_id'] %}
+                {% for i in range(interest_list | length) %}
+                    {% if (interest_list[i]['category']==login_interest_poket) and (i<4) %}
+
+                    <li>
+                    {% set detail_url = '/detail_page/' + interest_list[i]['maket_id'] %}
+
                     <a href="{{ detail_url }}">
                         <div>
-                            {% set photo_url = '/static/image/content/' + market_list[i]['photo'] %}
+                            {% set photo_url = '/static/image/content/' + interest_list[i]['photo'] %}
                             <img src="{{ photo_url }}" />
                         </div>
 
-                        <span>{{ market_list[i]['header'] }}</span>
-                        <p class="mt30">{{ market_list[i]['price'] }}원<strong>{{ market_list[i]['date'] }}</strong></p>
+                        <span>{{ interest_list[i]['header'] }}</span>
+                        <p class="mt30">{{ interest_list[i]['price'] }}원<strong>{{ interest_list[i]['date'] }}</strong></p>
                     </a>
                     </li>
                     {% set j = j + 1 %}

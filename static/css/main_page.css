@@ -77,6 +77,7 @@ body {
   position: absolute;
   width: 80px;
   height: 80px;
+  cursor: pointer;
 }
 
 .main_banner .main_banner_modal img {

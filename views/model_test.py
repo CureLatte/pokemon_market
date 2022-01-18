@@ -11,6 +11,8 @@ from pathlib import PureWindowsPath
 from pymongo import MongoClient
 import certifi
 import shutil
+import time
+import math
 
 ca = certifi.where()
 
@@ -69,15 +71,16 @@ def predict_poketmon():
         # 학습할때는 꼭 binary 혹은 categorical 로 설정해줘야 함에 유의
         class_mode=None,
         batch_size=1)
+    start = time.time()
     pred = model.predict(test_generator)
     max_value = max(pred[-1])
-    print(max_value)
     if max_value <= 0.7:
         return jsonify({'result': 'none'})
     for index, k in enumerate(pred[-1]):
         if k == max_value:
             result = poket_all_class[index]
             break
+
     return jsonify({'result': result})
 
 

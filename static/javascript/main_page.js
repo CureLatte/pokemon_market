@@ -68,6 +68,10 @@ $(function(){
         $('#category_button').attr('src','/static/image/main_images/Open-Pokeball_96px.png');
         $(".modal").fadeIn();
     })
+    $("#star").click(function(){
+        $('#category_button').attr('src','/static/image/main_images/Open-Pokeball_96px.png');
+        $(".modal").fadeIn();
+    })
     $("#modal_out").click(function(){
         $('#category_button').attr('src','/static/image/main_images/Pokeball_96px.png');
         $(".modal").fadeOut();
