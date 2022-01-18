@@ -2,33 +2,42 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon Store</title>
+    <link rel="stylesheet" href="/static/css/no.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+
+    <link rel="stylesheet" href="/static/css/upload_pokemon.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="/static/css/header.css">
-    <link rel="stylesheet" href="/static/css/footer.css">
-    <link rel="stylesheet" href="/static/css/no.css">
-    <link rel="stylesheet" href="/static/css/common.css">
-    <link rel="stylesheet" href="/static/css/upload_pokemon.css">
     <script src="../static/javascript/upload_pokemon.js" async></script>
-    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+
+
 
 </head>
 <body>
 {% include 'header.html' %}
-<div class="pocket_book_main_wrapper">
+<div id="main">
+    <div class="pocket_book_main_wrapper">
     <div class='pocket_book_left_box'>
         <div class="pocket_book_left_box_wrapper">
             <div class="pocket_book_left_box_row">
                 <div class="pocket_book_image_preview">
                     <img id="preview_writing_image">
+                    <div class="alert">
+                        <p id="alert_mention">그림을 올려주세요!</p>
+                    </div>
+                    <button id="check_alert" onclick="check_alert()"> 확인</button>
                 </div>
                 <div class="pocket_book_image_preview_wrapper">
                     <input style=' display: none' type="file" id="input_file" accept=".jpg, .png" required>
@@ -65,8 +74,6 @@
                         <input type="text">
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -78,7 +85,6 @@
                     <p>제목</p>
                     <input type="text" id="title">
                 </div>
-
             </div>
             <div class="pocket_book_content_box_row_right mt20">
                 <p>가격</p>
@@ -87,10 +93,11 @@
             <p class='mt20' style="font-size:20px;">내용</p>
             <textarea id="desc"></textarea>
             <button class="btn_upload" onclick="posting()">
-                <p>등록!</p>
+                <p>등록</p>
             </button>
         </div>
     </div>
+</div>
 </div>
 {% include 'footer.html' %}
 </body>

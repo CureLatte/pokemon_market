@@ -57,7 +57,7 @@ function auto_search_close() {
 
 function move_search_result(){
     let result = $('#search').val();
-    if(result !== ''){
+    if (result !==''){
         window.location.href='/sort_pokemon/' + result + '/1'
     }
 
@@ -65,6 +65,10 @@ function move_search_result(){
 
 $(function(){
     $("#category_button").click(function(){
+        $('#category_button').attr('src','/static/image/main_images/Open-Pokeball_96px.png');
+        $(".modal").fadeIn();
+    })
+    $("#star").click(function(){
         $('#category_button').attr('src','/static/image/main_images/Open-Pokeball_96px.png');
         $(".modal").fadeIn();
     })

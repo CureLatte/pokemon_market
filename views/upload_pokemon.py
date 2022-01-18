@@ -79,11 +79,6 @@ def upload_db_data():
         'content': '',
         'comment':
             [
-                {
-                    'photo_user_id': '',
-                    'photo_comment': '',
-                    'photo_avatar': ''
-                }
             ],
         'category': result,
         'photo': filename,
@@ -94,8 +89,9 @@ def upload_db_data():
         'level': level,
         'like_feed': like_feed,
         'catch_location': catch_location,
-        'trade_location': trade_location
-
+        'trade_location': trade_location,
+        'like': 0,
+        'like_list': []
     }
     db.market.insert_one(c)
 

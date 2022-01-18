@@ -6,13 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon Store</title>
+
     <link rel="stylesheet" href="/static/css/no.css">
     <link rel="stylesheet" href="/static/css/common.css">
     <link rel="stylesheet" href="/static/css/footer.css">
     <link rel="stylesheet" href="/static/css/header.css">
+
     <link rel="stylesheet" href="/static/css/main_page.css">
     <link rel="stylesheet" href="/static/css/category.css">
+
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -41,6 +48,7 @@
         <p class="main_banner_ball"><img src="/static/image/main_images/Pokeball_96px.png" alt="1"></p>
         <p class="main_banner_ball"><img src="/static/image/main_images/Ash-Hat_96px.png" alt="2"></p>
         <p class="main_banner_modal"><img src="/static/image/main_images/Pokeball_96px.png" style="transform: scaleX(-1);"  id="category_button" onclick=""></p>
+        <p class="main_banner_modal" id="star"><img src="/static/image/main_images/emphasis_star.png"></p>
     </div>
     <div class="modal" id="modal">
         {% include 'category.html' %}
@@ -106,20 +114,23 @@
     </ul>
     <ul class="prod_list mt50">
         <div class="prod-list-hot-content">
-            <h4 class="h4_common main_common"> 관심있는 포켓몬! <a href="#">모두보기</a></h4>
+            <h4 class="h4_common main_common">내가 관심 있는 포켓몬!<a href="#">모두보기</a></h4>
             <div class="flex content-wrapper mt30">
                 {% set j = 0 %}
-                {% for i in range(market_list | length) if j < 4 %} {% if
-                    market_list[i]['category']==login_interest_poket %} <li>
-                    {% set detail_url = '/detail_page/' + market_list[i]['maket_id'] %}
+                {% for i in range(interest_list | length) %}
+                    {% if (interest_list[i]['category']==login_interest_poket) and (i<4) %}
+
+                    <li>
+                    {% set detail_url = '/detail_page/' + interest_list[i]['maket_id'] %}
+
                     <a href="{{ detail_url }}">
                         <div>
-                            {% set photo_url = '/static/image/content/' + market_list[i]['photo'] %}
+                            {% set photo_url = '/static/image/content/' + interest_list[i]['photo'] %}
                             <img src="{{ photo_url }}" />
                         </div>
 
-                        <span>{{ market_list[i]['header'] }}</span>
-                        <p class="mt30">{{ market_list[i]['price'] }}원<strong>{{ market_list[i]['date'] }}</strong></p>
+                        <span>{{ interest_list[i]['header'] }}</span>
+                        <p class="mt30">{{ interest_list[i]['price'] }}원<strong>{{ interest_list[i]['date'] }}</strong></p>
                     </a>
                     </li>
                     {% set j = j + 1 %}
@@ -134,7 +145,7 @@
             {% for i in range(0, market_len, 5) %}
             <div class="flex content-wrapper mt30">
                 {% for j in range(i, i+5) if j < market_list | length %} <li>
-                    {% set detail_url = '/detail_page/' + market_list[i]['maket_id'] %}
+                    {% set detail_url = '/detail_page/' + market_list[j]['maket_id'] %}
                     <a href="{{ detail_url }}">
                         <div>
                             {% set photo_url = '/static/image/content/' + market_list[j]['photo'] %}
@@ -142,7 +153,7 @@
                         </div>
 
                         <span>{{ market_list[j]['header'] }}</span>
-                        <p class="mt30">{{ market_list[j]['price'] }}원<strong>{{ market_list[j]['date'] }}</strong></p>
+                        <p class="mt30">{{ market_list[j]['price'] }}  P<strong>{{ market_list[j]['date'] }}</strong></p>
                     </a>
                     </li>
                     {% endfor %}

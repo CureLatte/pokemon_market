@@ -24,9 +24,15 @@ def main_page():
         return redirect(url_for('main'))
     temp_poket = db.users.find_one({'user_id': login_user_id}, {'_id': False, 'interest_poket': 1})
     market_list = list(db.market.find({}, {'_id': False}))
+    interest_list = list(db.market.find({'category': temp_poket['interest_poket']}, {'_id': False}))
     market_list.sort(key=lambda x: (x['date']), reverse=True)
     now = datetime.now()
     for market in market_list:
+        temp_date = datetime.strptime(market['date'], '%Y-%m-%d-%H-%M-%S')
+        temp_time = (now - temp_date)
+        market['date'] = get_time(temp_time)
+
+    for market in interest_list:
         temp_date = datetime.strptime(market['date'], '%Y-%m-%d-%H-%M-%S')
         temp_time = (now - temp_date)
         market['date'] = get_time(temp_time)
@@ -47,7 +53,7 @@ def main_page():
             list_by_letter.append(poketmon_name)
     #####################################
 
-    return render_template('main_page.html', market_list=market_list, login_interest_poket=temp_poket['interest_poket'], container=dict_by_letter, koreans=category_korean)
+    return render_template('main_page.html', market_list=market_list, login_interest_poket=temp_poket['interest_poket'], container=dict_by_letter, koreans=category_korean, interest_list=interest_list)
 
 
 def get_time(tm):
