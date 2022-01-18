@@ -37,20 +37,27 @@ def open_profile():
     photo = []
     date = []
     monster = []
+    market = []
 
     for i in range(len(pokemon)):
         title.append(pokemon[i]['header'])
         photo.append(pokemon[i]['photo'])
         date.append(pokemon[i]['date'])
+        market.append(pokemon[i]['maket_id'])
 
-    for j in user['poket_box']:
-        for i in j:
-            monster.append(j[i])
+    if 'poket_box' not in user:
+        monster = monster
+    else:
+        for j in user['poket_box']:
+            for i in j:
+                monster.append(j[i])
 
+    market = market[::-1]
+    monster = monster[::-1]
     title = title[::-1]
     photo = photo[::-1]
     date = date[::-1]
-    monster = monster[::-1]
+
     # print(user['poket_box'][0])
     return render_template('profile.html', container=user, mon_title=title, mon_photo=photo, mon_date=date,
-                           get_mon=monster, poket=pokemon)
+                           get_mon=monster, poket=pokemon, market_id=market)

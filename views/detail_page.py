@@ -13,9 +13,12 @@ import jwt
 import hashlib
 from views.common import check_decode
 # import requests
+import certifi
+
+ca = certifi.where()
 
 client = MongoClient(
-    "mongodb+srv://test:sparta@cluster0.cpg4z.mongodb.net/Cluster0?retryWrites=true&w=majority")
+    "mongodb+srv://test:sparta@cluster0.cpg4z.mongodb.net/Cluster0?retryWrites=true&w=majority",  tlsCAFile=ca)
 
 db = client.dbpokemon
 # 해당 페이지의 접두어를 넣고 이동하면 됩니다.
