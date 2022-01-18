@@ -116,7 +116,7 @@ function posting() {
         $('#check_alert').css('display','block')
         return $('#alert_mention').text('가격을 입력해 주세요')
     }
-    if( $('#pokemon_name').text() === '') {
+    if( $('#loading').css('display') === 'flex') {
         $('.alert').css('display','flex')
         $('#check_alert').css('display','block')
         return $('#alert_mention').text('판별중!')
