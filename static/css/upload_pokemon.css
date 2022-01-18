@@ -1,3 +1,8 @@
+#main {
+    margin: 0;
+    padding: 0;
+    background-image: url("/static/image/divice_background.png");
+}
 .alert{
     position: relative;
     bottom : 190px;
@@ -37,7 +42,7 @@
 .pocket_book_main_wrapper{
     width: 1200px;
     height :1000px;
-    margin: 40px auto;
+    margin: auto;
     display: flex;
     flex-direction: row;
     justify-content: center;
