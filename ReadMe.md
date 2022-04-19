@@ -2,7 +2,7 @@
 
 
 
-#  포켓몬 장터
+# :smiley_cat:  포켓몬 장터
 ***
 
 ![img.png](static/image/banner.png)
@@ -10,7 +10,7 @@
 <br>
 <br>
 
-###  소개 
+###  :bell: 소개 
 ***
 
 포켓몬 이미지를 올리기, 판매, 수집 할 수 있는  중고 거래 사이트!
@@ -18,37 +18,41 @@
 <br>
 <br>
 
-### 사용한 기술 
+### :bulb: 사용한 기술 
 ***
 
-
-<img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white"> 
-<img src="https://img.shields.io/badge/mongoDB-47A248?style=for-the-badge&logo=MongoDB&logoColor=white">
-<img src="https://img.shields.io/badge/flask-000000?style=for-the-badge&logo=flask&logoColor=white">
-
-<img src="https://img.shields.io/badge/tensorflow-FF7100?style=for-the-badge&logo=tensorflow&logoColor=white">
-<img src="https://img.shields.io/badge/Pyjwt-8EC2F2?style=for-the-badge&logo=pyjwt&logoColor=white">
-<img src="https://img.shields.io/badge/request-C5B7AC?style=for-the-badge&logoColor=white">
-
+<div style='display:span;'>
+  <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white"> 
+  <img src="https://img.shields.io/badge/mongoDB-47A248?style=for-the-badge&logo=MongoDB&logoColor=white">
+  <img src="https://img.shields.io/badge/flask-000000?style=for-the-badge&logo=flask&logoColor=white">
+  <img src="https://img.shields.io/badge/tensorflow-FF7100?style=for-the-badge&logo=tensorflow&logoColor=white">
+  <img src="https://img.shields.io/badge/Pyjwt-8EC2F2?style=for-the-badge&logo=pyjwt&logoColor=white">
+  <img src="https://img.shields.io/badge/request-C5B7AC?style=for-the-badge&logoColor=white">
+<div>
 
 <br>
 <br>
 
 
-### 프로젝트 세팅
+### :wrench: 프로젝트 세팅
 ***
 * 가상환경 : `Anaconda`
 
 * Packages 
-<img src="https://img.shields.io/badge/flask-0.01-blue?style"/>
-
-  - `Flask` `dnspython` `pymongo` `requests` `PyJWT` `Tensorflow`
+  <span>
+    <img src="https://img.shields.io/badge/flask-2.0.3-blue?style"/>
+    <img src="https://img.shields.io/badge/dnspython-1.16.0-blue?style"/>
+    <img src="https://img.shields.io/badge/pymongo-3.12.0-blue?style"/>
+    <img src="https://img.shields.io/badge/requests-2.26.0-blue?style"/>
+    <img src="https://img.shields.io/badge/PyJWT-2.1.0-blue?style"/>
+    <img src="https://img.shields.io/badge/Tensorflow-2.6.0-blue?style"/>
+  </span>
 
 <br>
 <br>
 
 
-### 프로젝트 기간
+### :calendar: 프로젝트 기간
 ***
 ### 2022 년 1월 13일 ~ 2022년 1월 18일 [약 1주]
 
@@ -57,7 +61,7 @@
 <br>
 
 
-### 팀 구성 및 역할 
+###  :pushpin: 팀 구성 및 역할 
 ***
 
 <br>
@@ -76,7 +80,7 @@
 <br>
 
 
-### 주요기능
+### :tada: 주요기능
 ***
 
 * 포켓몬 게시글 올리기
@@ -88,7 +92,7 @@
 <br>
 
 
-### 와이어 프레임
+### :triangular_ruler: 와이어 프레임
 ***
 
 [Figma 링크](https://www.figma.com/file/MrPWIagiukBUsmXkD9aqJm?embed_host=share&kind=&viewer=1)
@@ -100,7 +104,7 @@
 <br>
 
 
-### AI code
+### :computer: AI code
 ***
 
 * AI 학습은 Colab 에서 진행 
@@ -113,7 +117,7 @@
 <br>
 <br>
 
-### DB
+### :floppy_disk: DB
 ***
 
 Collections 
