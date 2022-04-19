@@ -16,12 +16,12 @@ import math
 
 ca = certifi.where()
 
-client = MongoClient("mongodb+srv://test:sparta@cluster0.cpg4z.mongodb.net/Cluster0?retryWrites=true&w=majority", tlsCAFile=ca)
+client = MongoClient("mongodb+srv://test:rlawotjd8250@cluster0.cpg4z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", tlsCAFile=ca)
 
 db = client.dbpokemon
 
 SECRET_KEY = 'sparta'
-model = tf.keras.models.load_model('./static/model/model_SGD_add_1.h5')
+model = tf.keras.models.load_model("static/model/model_SGD_add_1.h5")
 bp = Blueprint("machine", __name__, url_prefix='/machine')
 
 
