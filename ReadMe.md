@@ -5,7 +5,7 @@
 #  포켓몬 장터
 ***
 
-![img.png](static/image/img.png)
+![img.png](static/image/banner.png)
 
 <br>
 <br>
