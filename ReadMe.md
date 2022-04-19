@@ -21,14 +21,14 @@
 ### :bulb: 사용한 기술 
 ***
 
-<div style='display:span;'>
+<span>
   <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white"> 
   <img src="https://img.shields.io/badge/mongoDB-47A248?style=for-the-badge&logo=MongoDB&logoColor=white">
   <img src="https://img.shields.io/badge/flask-000000?style=for-the-badge&logo=flask&logoColor=white">
   <img src="https://img.shields.io/badge/tensorflow-FF7100?style=for-the-badge&logo=tensorflow&logoColor=white">
   <img src="https://img.shields.io/badge/Pyjwt-8EC2F2?style=for-the-badge&logo=pyjwt&logoColor=white">
   <img src="https://img.shields.io/badge/request-C5B7AC?style=for-the-badge&logoColor=white">
-<div>
+</span>
 
 <br>
 <br>
