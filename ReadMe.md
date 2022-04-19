@@ -148,10 +148,10 @@ Collections
 <br>
 
 * users
-  * avatar:`<string>`
-  * user_id:`<string>`
+  * avatar : `<string>`
+  * user_id : `<string>`
   * password : `<string>`
-  * phone_number :`<string>`
+  * phone_number : `<string>`
   * gender : `<string>`
   * interest_poket : `<string>`
   * point : `<int>`
