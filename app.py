@@ -9,13 +9,15 @@ import certifi
 from pymongo import MongoClient
 
 ca = certifi.where()
-client = MongoClient("mongodb+srv://test:sparta@cluster0.cpg4z.mongodb.net/Cluster0?retryWrites=true&w=majority", tlsCAFile=ca)
+client = MongoClient("mongodb+srv://test:rlawotjd8250!@cluster0.cpg4z.mongodb.net/Cluster0?retryWrites=true&w=majority", tlsCAFile=ca)
+
+db = client.test
+
 
 app = Flask(__name__)
 app.secret_key = 'sparta'
 
 db = client.dbpokemon
-
 
 
 app.register_blueprint(model_test.bp)
@@ -42,4 +44,4 @@ def main():
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5001, debug=True)
+    app.run('0.0.0.0', port=5000, debug=True)
