@@ -1,6 +1,7 @@
 body {
   color: #191f28;
   height: 200vh;
+  list-style: none;
 }
 .main_common {
   font-size: 35px;
